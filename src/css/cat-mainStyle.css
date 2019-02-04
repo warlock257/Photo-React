@@ -1,0 +1,83 @@
+html{
+    font-family: sans-serif;
+}
+
+.catMain{
+    margin-left: 50px;
+}
+
+#draggable { 
+    width: 200px; 
+    height: 200px; 
+    padding: 0.5em; 
+    position: relative;
+    margin: 10px 10px 10px 0; 
+}
+
+.droppable{ 
+    width: 150px; 
+    height: 100px; 
+    padding: 0.5em; 
+    float: left; 
+    margin: 10px;
+    border: black solid 2px;
+    font-size: 1.2rem;
+}
+
+.chrono-box {
+    background-color: #000dff;
+    color:white;
+    text-align: center;
+}
+.family-box{
+    background-color: #d0d700;
+    color:white;
+    text-align: center;
+}
+
+.extended-box{
+    background-color: #089f00;
+    color:white;
+    text-align: center;
+}
+
+.friends-box{
+    background-color: #b50926;
+    color:white;
+    text-align: center;
+}
+
+.fun-box{
+    background-color: #e304b7;
+    color:white;
+    text-align: center;
+}
+
+.unsorted-box{
+    background-color: white;
+    color:black;
+    text-align: center;
+}
+.picFrame{
+    background-image: url('../tempImages/fam\ \(3\).jpg');
+}
+
+
+.chronoBorder {
+    border: #000dff solid 7px;
+}
+.familyBorder {
+    border: #d0d700 solid 7px;
+}
+.extBorder {
+    border: #089f00 solid 7px;
+}
+.friendsBorder {
+    border: #b50926 solid 7px;
+}
+.funBorder {
+    border: #e304b7 solid 7px;
+}
+.unsortedBorder{
+    border: black solid 7px;
+}

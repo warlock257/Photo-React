@@ -1,0 +1,83 @@
+.topbar{
+    background-color: whitesmoke;
+    height: 175px;
+    -webkit-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+    -moz-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+}
+
+.progress-circles{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+}
+
+.green-circle{
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  background-color: #1cc500;
+  border-radius: 50%;
+    border: solid black 1px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
+    -moz-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.8);
+}
+
+.progress-line{
+    height: 5px;
+    width: 4vw;
+    background-color: white;
+    display: inline-block;
+    vertical-align: middle;    
+    -webkit-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
+    -moz-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.8);
+}
+
+.white-circle{
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    border: solid black 1px;
+    display: inline-block;
+    vertical-align: middle; 
+    -webkit-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
+    -moz-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.8);
+}
+
+.circle-text-signIn{
+    position: relative;
+    top: 35px;
+    left: 24px;
+}
+.circle-text-upload{
+    position: relative;
+    top: 35px;
+    left: 22px;
+}
+.circle-text-cat{
+    position: relative;
+    top: 35px;
+    left: 9px;
+}
+.circle-text-order{
+    position: relative;
+    top: 35px;
+    left: 29px;
+}
+.circle-text-complete{
+    position: relative;
+    top: 35px;
+    left: 15px;
+}
+
+.welcomeName{
+    padding-left:3rem;
+}
