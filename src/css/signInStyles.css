@@ -1,0 +1,9 @@
+.signInDiv{
+    margin-left:300px;
+    padding-top: 75px;
+}
+.signInDiv input{
+    height: 75px;
+    width: 500px;
+    font-size: 2rem;
+}

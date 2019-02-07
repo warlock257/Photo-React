@@ -1,0 +1,102 @@
+
+
+.sidebar{
+    background-color: whitesmoke;
+    width: 350px;
+    height: 100vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar p{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.chrono{
+    display: inline-block;
+    font-size: 1.3rem;
+}
+
+.chrono input{
+    position: relative;
+    left: 40px;
+}
+
+.family{
+    display: inline-block;
+    font-size: 1.3rem;
+}
+.family input{
+    position: relative;
+    left: 75px;
+}
+
+.extended{
+    display: inline-block;
+    font-size: 1.3rem;
+}
+.extended input{
+    position: relative;
+    left: 60px;
+}
+
+.friends{
+    display: inline-block;
+    font-size: 1.3rem;
+}
+.friends input{
+    position: relative;
+    left: 70px;
+}
+.fun{
+    display: inline-block;
+    font-size: 1.3rem;
+}
+.fun input{
+    position: relative;
+    left: 80px;
+}
+
+.unsorted{
+    display: inline-block;
+    font-size: 1.3rem;
+}
+.unsorted input{
+    position: relative;
+    left: 55px;
+}
+
+input[type=checkbox]
+{
+
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+.blue-text{
+    color: #000dff;
+}
+.yellow-text{
+    color: yellow;
+}
+.green-text{
+    color: #089f00;
+}
+.red-text{
+    color: #b50926;
+}
+.pink-text{
+    color: #e304b7;
+}
+.white-text{
+    color: white;
+}
+.black-text{
+    color:black;
+}
