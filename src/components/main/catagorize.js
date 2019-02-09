@@ -13,13 +13,19 @@ export default class Main3Cat extends Component {
 
     onDragOver = (ev, cat) => {
         ev.preventDefault();
-        console.log('DRAGGING ev: '+ ev + ' cat: ' + cat);
+        //console.log('DRAGGING ev: '+ ev + ' cat: ' + cat);
         this.setState({currentCat: cat});
     }
 
-    onDrop = (ev, cat) => {
-        console.log('DROP ev: '+ ev.number + ' cat: ' + cat);
-        console.log('current catagory state: '+ this.state.currentCat);
+    onDropChrono = (ev) => {
+        console.dir(ev[0].key)
+        console.log("before",dummyData[0].catagory)
+        dummyData[0].catagory = "Chrono"
+        console.log("after",dummyData[0].catagory)
+
+        //console.log("drop event: "+ ev.target)
+        //console.log('DROP ev: '+ ev.number + ' cat: ' + cat);
+        //console.log('current catagory state: '+ this.state.currentCat);
         //console.log(images.originalFilename)
     }
 
@@ -58,7 +64,7 @@ export default class Main3Cat extends Component {
     let images = dummyData.map(image => {
         for (var i = 0; i < dummyData.length; i++){
             if (dummyData[i].catagory === 'unsorted'){
-                console.log(dummyData[i].catagory);
+                //console.log(dummyData[i].catagory);
                 borderColor = unsortedBorder;
             } else if (dummyData[i].catagory === 'chrono'){
                 console.log(dummyData[i].catagory);
@@ -77,9 +83,10 @@ export default class Main3Cat extends Component {
                 borderColor = funBorder;
             }
         }
+        
         return (
-            <div id={image.number} draggable class="draggableImg"> 
-                <img key={image.awsUrl} src={image.awsUrl} alt="" className="img-responsive" />
+            <div id={image.number} key={image.number} draggable className="draggableImg" > 
+                <img src={image.awsUrl} alt="" className="img-responsive" />
             </div>
             )
      });
@@ -91,7 +98,7 @@ export default class Main3Cat extends Component {
 
                     <div id="droppable-chrono" className="droppable ui-widget-header chrono-box"
                     onDragOver={(e) =>this.onDragOver(e, "chrono")}
-                    onDrop={(e) =>{this.onDrop(images, "chrono")}}>
+                    onDrop={(e) =>{this.onDropChrono(images)}}>
                     <p>Chronological</p>
                     </div>
 
