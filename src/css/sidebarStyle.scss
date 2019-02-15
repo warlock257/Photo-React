@@ -1,5 +1,4 @@
 
-
 .sidebar{
     background-color: whitesmoke;
     width: 350px;
@@ -9,19 +8,21 @@
     text-align: center;
 }
 
-.sidebar p{
-    padding-left: 30px;
-    padding-right: 30px;
+.sidebar1Text{
+    margin:0 auto;
+    max-width:85%;
 }
 
-.chrono{
-    display: inline-block;
+.checkContainer{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
     font-size: 1.3rem;
-}
-
-.chrono input{
-    position: relative;
-    left: 40px;
+    padding-right:50px;
+    p{
+        margin:0;
+        margin-right:40px;
+    }
 }
 
 .family{
@@ -70,13 +71,11 @@
 
 input[type=checkbox]
 {
-
   /* Double-sized Checkboxes */
   -ms-transform: scale(2); /* IE */
   -moz-transform: scale(2); /* FF */
   -webkit-transform: scale(2); /* Safari and Chrome */
   -o-transform: scale(2); /* Opera */
-  padding: 10px;
 }
 
 .blue-text{

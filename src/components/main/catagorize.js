@@ -127,11 +127,7 @@ export default class Main3Cat extends Component {
                     { images }
                 </div>
         </div>
-        
-
-
-
-
+ 
       )
     }
   }
