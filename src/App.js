@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import './css/bootstrap.min.css';
+//import './css/bootstrap.min.css';
 //import './js/jquery-3.3.1.slim.min.js';
 //import './css/jquery-ui.css';
 //import './js/popper.min.js';
 
 import './css/topbarStyle.css';
-import './css/sidebarStyle.css';
+import './css/sidebarStyle.scss';
 import './css/signInStyles.css';
+import './css/upload-styles.scss';
 import './css/cat-mainStyle.css';
 
 import Topbar from './components/topbar/topbar.js';
@@ -21,8 +22,7 @@ import Main2Upload from './components/main/upload.js';
 import Main3Cat from './components/main/catagorize.js';
 import Main4Order from './components/main/order.js';
 import Main5Complete from './components/main/complete.js';
-
-
+import dummyData from './components/dummyData.js'
 
 class App extends Component {
   constructor(){
@@ -30,55 +30,43 @@ class App extends Component {
     this.state = {
       page: 1,
       name: 'none',
-      totalPhotos: 0,
+      totalPhotos: dummyData.length,
       chronoPhotos: 0,
       famPhotos: 0,
       extPhotos: 0,
       friendsPhotos: 0,
       funPhotos: 0
     }
-  //bind your functions in the constructor
-  this.signInClick = this.signInClick.bind(this);
-  this.uploadClick = this.uploadClick.bind(this);
-  this.catClick = this.catClick.bind(this);
-  this.orderClick = this.orderClick.bind(this);
-  this.completeClick = this.completeClick.bind(this);
-  this.updateName = this.updateName.bind(this);
-  this.signInNext = this.signInNext.bind(this);
+  }
+
+  signInNext= (ev) => {
+    ev.preventDefault();
+    var formData = document.getElementById('nameField').value;
+    console.log(formData);
+    this.setState({ name: formData });
+    if(this.state.name === 'none'){
+      alert("Enter a name before proceeding");
+    } else {
+      this.setState({page: 2});
+    }
   }
   
   
-signInClick() {
+signInClick=() => {
   this.setState({page: 1});
 } 
-uploadClick() {
+uploadClick=() => {
   this.setState({page: 2});
 }  
-catClick() {
+catClick=() => {
   this.setState({page: 3});
 }  
-orderClick() {
+orderClick=() => {
   this.setState({page: 4});
 }  
-completeClick() {
+completeClick=()=> {
   this.setState({page: 5});
 }   
-
-updateName(ev){
-  ev.preventDefault();
-  var formData = ev.target.value
-  //console.log(formData);
-  this.setState({ name: formData });
-}
-
-signInNext(){
-  if(this.state.name === 'none'){
-    alert("Enter a name before proceeding");
-  } else {
-    this.setState({page: 2});
-  }
-}
-
 
 render() {
 
@@ -88,15 +76,17 @@ render() {
   if (this.state.page === 1){
       console.log('page 1')
       sidebar = <Sidebar1 />
-      mainPage = <Main1Sign updateName={this.updateName} page={this.state.page}  signInNext={this.signInNext} />
+      mainPage = <Main1Sign updateName={this.updateName} 
+                            page={this.state.page}  
+                            signInNext={this.signInNext} />
   } else if (this.state.page === 2){
       console.log('page 2')
-      sidebar = <Sidebar2 />
+      sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}/>
       mainPage = <Main2Upload />
   }
     else if (this.state.page === 3){
       console.log('page 3')
-      sidebar = <Sidebar3 />
+      sidebar = <Sidebar3 totalPhotos={this.state.totalPhotos} />
       mainPage = <Main3Cat />
   }
     else if (this.state.page === 4){

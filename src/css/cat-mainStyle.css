@@ -2,16 +2,38 @@ html{
     font-family: sans-serif;
 }
 
-.catMain{
-    margin-left: 50px;
+.catagorySection{
+    width:70vw;
+    position: sticky;
 }
 
-#draggable { 
+.catMain{
+    margin-top:30px;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.imageArea{
+    display:flex;
+    flex-wrap: wrap;
+    margin-left:2%;
+}
+
+.draggableImg { 
     width: 200px; 
     height: 200px; 
     padding: 0.5em; 
-    position: relative;
     margin: 10px 10px 10px 0; 
+    border:solid black 3px;
+    overflow: hidden;
+}
+.draggableImg img{
+    width: auto;
+    height: auto;
+    max-width: 95%;
+    max-height: 95%;
+    display: block;
+    margin: 0 auto;
 }
 
 .droppable{ 
@@ -81,3 +103,4 @@ html{
 .unsortedBorder{
     border: black solid 7px;
 }
+

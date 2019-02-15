@@ -56,30 +56,30 @@ export default class Main3Cat extends Component {
 
 
     let images = dummyData.map(image => {
-        // for (var i = 0; i < dummyData.length; i++){
-        //     if (dummyData[i].catagory === 'unsorted'){
-        //         console.log(dummyData[i].catagory);
-        //         borderColor = unsortedBorder;
-        //     } else if (dummyData[i].catagory === 'chrono'){
-        //         console.log(dummyData[i].catagory);
-        //         borderColor = chronoBorder;
-        //     } else if (dummyData[i].catagory === 'family'){
-        //         console.log(dummyData[i].catagory);
-        //         borderColor = familyBorder;
-        //     } else if (dummyData[i].catagory === 'extended'){
-        //         console.log(dummyData[i].catagory);
-        //         borderColor = extBorder;
-        //     } else if (dummyData[i].catagory === 'friends'){
-        //         console.log(dummyData[i].catagory);
-        //         borderColor = friendsBorder;
-        //     } else if (dummyData[i].catagory === 'fun'){
-        //         console.log(dummyData[i].catagory);
-        //         borderColor = funBorder;
-        //     }
-        // }
+        for (var i = 0; i < dummyData.length; i++){
+            if (dummyData[i].catagory === 'unsorted'){
+                console.log(dummyData[i].catagory);
+                borderColor = unsortedBorder;
+            } else if (dummyData[i].catagory === 'chrono'){
+                console.log(dummyData[i].catagory);
+                borderColor = chronoBorder;
+            } else if (dummyData[i].catagory === 'family'){
+                console.log(dummyData[i].catagory);
+                borderColor = familyBorder;
+            } else if (dummyData[i].catagory === 'extended'){
+                console.log(dummyData[i].catagory);
+                borderColor = extBorder;
+            } else if (dummyData[i].catagory === 'friends'){
+                console.log(dummyData[i].catagory);
+                borderColor = friendsBorder;
+            } else if (dummyData[i].catagory === 'fun'){
+                console.log(dummyData[i].catagory);
+                borderColor = funBorder;
+            }
+        }
         return (
-            <div id="draggable" draggable style={image.borderColor} > 
-            <img key={image.awsUrl} src={image.awsUrl} alt="" className="img-responsive" />
+            <div id={image.number} draggable class="draggableImg"> 
+                <img key={image.awsUrl} src={image.awsUrl} alt="" className="img-responsive" />
             </div>
             )
      });
@@ -120,11 +120,7 @@ export default class Main3Cat extends Component {
                     { images }
                 </div>
         </div>
-        
-
-
-
-
+ 
       )
     }
   }
