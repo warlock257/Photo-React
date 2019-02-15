@@ -18,10 +18,10 @@ export default class Main3Cat extends Component {
     }
 
     onDropChrono = (ev) => {
-        console.dir(ev[0].key)
-        console.log("before",dummyData[0].catagory)
-        dummyData[0].catagory = "Chrono"
-        console.log("after",dummyData[0].catagory)
+        console.dir(ev.target)
+        
+        //dummyData[0].catagory = "Chrono"
+        
 
         //console.log("drop event: "+ ev.target)
         //console.log('DROP ev: '+ ev.number + ' cat: ' + cat);
@@ -98,7 +98,7 @@ export default class Main3Cat extends Component {
 
                     <div id="droppable-chrono" className="droppable ui-widget-header chrono-box"
                     onDragOver={(e) =>this.onDragOver(e, "chrono")}
-                    onDrop={(e) =>{this.onDropChrono(images)}}>
+                    onDrop={this.onDropChrono}   >
                     <p>Chronological</p>
                     </div>
 
