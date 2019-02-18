@@ -10,7 +10,7 @@ var dummyData = [
         number:1,
         originalFilename:'chrono (2).jpg',
         newFilename:'',
-        catagory:'unsorted',
+        catagory:'chrono',
         awsUrl:'https://s3.us-east-2.amazonaws.com/photo-react/tempImages/chrono+(2).jpg'
 
     },

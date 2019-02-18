@@ -5,126 +5,154 @@ export default class Main3Cat extends Component {
     constructor () {
       super()
       this.state = {
-        border: 'unsortedBorder',
-        currentCat: 'unsorted'
+        dummydata:dummyData,  
+        currentId: 0
       }
-
+      this.currentId = 'default';
     }
 
-    onDragOver = (ev, cat) => {
+    allowDrop =(ev) => {
         ev.preventDefault();
-        //console.log('DRAGGING ev: '+ ev + ' cat: ' + cat);
-        this.setState({currentCat: cat});
+      }
+
+    onDragOver = (ev) => {
+        this.currentId = ev.target.attributes.id.value;
     }
 
     onDropChrono = (ev) => {
-        console.dir(ev.target)
-        
-        //dummyData[0].catagory = "Chrono"
-        
-
-        //console.log("drop event: "+ ev.target)
-        //console.log('DROP ev: '+ ev.number + ' cat: ' + cat);
-        //console.log('current catagory state: '+ this.state.currentCat);
-        //console.log(images.originalFilename)
+        ev.preventDefault();
+        const copy = Array.from(this.state.dummydata)
+        copy[this.currentId].catagory = 'chrono'
+        this.setState({ dummydata:copy })
+    }
+    onDropFamily = (ev) => {
+        ev.preventDefault();
+        const copy = Array.from(this.state.dummydata)
+        copy[this.currentId].catagory = 'family'
+        this.setState({ dummydata:copy })
+    }
+    onDropExtended = (ev) => {
+        ev.preventDefault();
+        const copy = Array.from(this.state.dummydata)
+        copy[this.currentId].catagory = 'extended'
+        this.setState({ dummydata:copy })
+    }
+    onDropFriends = (ev) => {
+        ev.preventDefault();
+        const copy = Array.from(this.state.dummydata)
+        copy[this.currentId].catagory = 'friends'
+        this.setState({ dummydata:copy })
+    }
+    onDropFun = (ev) => {
+        ev.preventDefault();
+        const copy = Array.from(this.state.dummydata)
+        copy[this.currentId].catagory = 'fun'
+        this.setState({ dummydata:copy })
+    }
+    onDropUnsorted = (ev) => {
+        ev.preventDefault();
+        const copy = Array.from(this.state.dummydata)
+        copy[this.currentId].catagory = 'unsorted'
+        this.setState({ dummydata:copy })
     }
 
       render () {
 
-        var chronoBorder = {
-            backgroundColor:'#000dff',
-            overflow:'hidden'
-        };
-        var familyBorder = {
-            backgroundColor:'#d0d700',
-            overflow:'hidden'
-        };
-        var extBorder = {
-            backgroundColor:'#089f00',
-            overflow:'hidden'
-        };
-        var friendsBorder = {
-            backgroundColor:'#b50926',
-            overflow:'hidden'
-        };
-        var funBorder = {
-            backgroundColor:'#e304b7',
-            overflow:'hidden'
-        };
-        var unsortedBorder = {
-            backgroundColor:'black',
-            overflow:'hidden'
-        };
-        var borderColor = {
-            backgroundColor:'black',
-            overflow:'hidden'
-        };
+    var chronoBorder = {
+        backgroundColor:'#000dff',
+        overflow:'hidden'
+    };
+    var familyBorder = {
+        backgroundColor:'#d0d700',
+        overflow:'hidden'
+    };
+    var extBorder = {
+        backgroundColor:'#089f00',
+        overflow:'hidden'
+    };
+    var friendsBorder = {
+        backgroundColor:'#b50926',
+        overflow:'hidden'
+    };
+    var funBorder = {
+        backgroundColor:'#e304b7',
+        overflow:'hidden'
+    };
+    var unsortedBorder = {
+        backgroundColor:'black',
+        overflow:'hidden'
+    };
+    var borderColor = {
+        backgroundColor:'black',
+        overflow:'hidden'
+    };
 
+    let imageArray = dummyData.map((object, index) =>{
 
-    let images = dummyData.map(image => {
-        for (var i = 0; i < dummyData.length; i++){
-            if (dummyData[i].catagory === 'unsorted'){
-                //console.log(dummyData[i].catagory);
-                borderColor = unsortedBorder;
-            } else if (dummyData[i].catagory === 'chrono'){
-                console.log(dummyData[i].catagory);
-                borderColor = chronoBorder;
-            } else if (dummyData[i].catagory === 'family'){
-                console.log(dummyData[i].catagory);
-                borderColor = familyBorder;
-            } else if (dummyData[i].catagory === 'extended'){
-                console.log(dummyData[i].catagory);
-                borderColor = extBorder;
-            } else if (dummyData[i].catagory === 'friends'){
-                console.log(dummyData[i].catagory);
-                borderColor = friendsBorder;
-            } else if (dummyData[i].catagory === 'fun'){
-                console.log(dummyData[i].catagory);
-                borderColor = funBorder;
-            }
-        }
-        
-        return (
-            <div id={image.number} key={image.number} draggable className="draggableImg" > 
-                <img src={image.awsUrl} alt="" className="img-responsive" />
-            </div>
-            )
-     });
+    if (dummyData[index].catagory === 'unsorted'){
+        borderColor = unsortedBorder;
+    } else if (dummyData[index].catagory === 'chrono'){
+        borderColor = chronoBorder;
+    } else if (dummyData[index].catagory === 'family'){
+        borderColor = familyBorder;
+    } else if (dummyData[index].catagory === 'extended'){
+        borderColor = extBorder;
+    } else if (dummyData[index].catagory === 'friends'){
+        borderColor = friendsBorder;
+    } else if (dummyData[index].catagory === 'fun'){
+        borderColor = funBorder;
+    }
 
-     
+    return (
+        <div key={dummyData[index].number} id={dummyData[index].number} draggable="true" onDragStart={this.onDragOver}  className="draggableImg" style={borderColor} > 
+            <img  src={dummyData[index].awsUrl}  id={dummyData[index].number} alt="" className="img-responsive" />
+        </div>
+        )
+    })
+    
       return (
         <div className="catagorySection">
             <div className='catMain'>
 
                     <div id="droppable-chrono" className="droppable ui-widget-header chrono-box"
-                    onDragOver={(e) =>this.onDragOver(e, "chrono")}
-                    onDrop={this.onDropChrono}   >
+                    onDragOver={this.allowDrop}
+                    onDrop={this.onDropChrono} >
                     <p>Chronological</p>
                     </div>
-
-                    <div id="droppable-family" className="droppable ui-widget-header family-box">
+                    
+                    <div id="droppable-family" className="droppable ui-widget-header family-box"
+                    onDragOver={this.allowDrop}
+                    onDrop={this.onDropFamily}>
                     <p>Family</p>
                     </div>
 
-                    <div id="droppable-extended" className="droppable ui-widget-header extended-box">
+                    <div id="droppable-extended" className="droppable ui-widget-header extended-box"
+                    onDragOver={this.allowDrop}
+                    onDrop={this.onDropExtended}>
                     <p>Extended</p>
                     </div>
 
-                    <div id="droppable-friends" className="droppable ui-widget-header friends-box">
+                    <div id="droppable-friends" className="droppable ui-widget-header friends-box"
+                    onDragOver={this.allowDrop}
+                    onDrop={this.onDropFriends}>
                         <p>Friends</p>
                     </div>
 
-                    <div id="droppable-fun" className="droppable ui-widget-header fun-box">
+                    <div id="droppable-fun" className="droppable ui-widget-header fun-box"
+                    onDragOver={this.allowDrop}
+                    onDrop={this.onDropFun}>
                         <p>Fun</p>
                     </div>
 
-                    <div id="droppable-unsorted" className="droppable ui-widget-header unsorted-box">
+                    <div id="droppable-unsorted" className="droppable ui-widget-header unsorted-box"
+                    onDragOver={this.allowDrop}
+                    onDrop={this.onDropUnsorted}>
                         <p>Unsorted</p>
                     </div>
             </div>
 
                 <div className="imageArea">
-                    { images }
+                    { imageArray }
                 </div>
         </div>
  
