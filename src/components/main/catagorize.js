@@ -1,12 +1,9 @@
 import React, { Component} from 'react';
-import dummyData from '../dummyData';
 
 export default class Main3Cat extends Component {
     constructor () {
       super()
       this.state = {
-        dummydata:dummyData,  
-        currentId: 0
       }
       this.currentId = 'default';
     }
@@ -21,39 +18,45 @@ export default class Main3Cat extends Component {
 
     onDropChrono = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.state.dummydata)
+        const copy = Array.from(this.props.dummydata)
         copy[this.currentId].catagory = 'chrono'
-        this.setState({ dummydata:copy })
+        this.props.updateCatState(copy);
+        this.props.updateCatCount();
     }
     onDropFamily = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.state.dummydata)
+        const copy = Array.from(this.props.dummydata)
         copy[this.currentId].catagory = 'family'
-        this.setState({ dummydata:copy })
+        this.props.updateCatState(copy);
+        this.props.updateCatCount();
     }
     onDropExtended = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.state.dummydata)
+        const copy = Array.from(this.props.dummydata)
         copy[this.currentId].catagory = 'extended'
-        this.setState({ dummydata:copy })
+        this.props.updateCatState(copy);
+        this.props.updateCatCount();
     }
     onDropFriends = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.state.dummydata)
+        const copy = Array.from(this.props.dummydata)
         copy[this.currentId].catagory = 'friends'
-        this.setState({ dummydata:copy })
+        this.props.updateCatState(copy);
+        this.props.updateCatCount();
     }
     onDropFun = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.state.dummydata)
+        const copy = Array.from(this.props.dummydata)
         copy[this.currentId].catagory = 'fun'
-        this.setState({ dummydata:copy })
+        this.props.updateCatState(copy);
+        this.props.updateCatCount();
     }
     onDropUnsorted = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.state.dummydata)
+        const copy = Array.from(this.props.dummydata)
         copy[this.currentId].catagory = 'unsorted'
-        this.setState({ dummydata:copy })
+        this.props.updateCatState(copy);
+        this.props.updateCatCount();
     }
 
       render () {
@@ -87,25 +90,25 @@ export default class Main3Cat extends Component {
         overflow:'hidden'
     };
 
-    let imageArray = dummyData.map((object, index) =>{
+    let imageArray = this.props.dummydata.map((object, index) =>{
 
-    if (dummyData[index].catagory === 'unsorted'){
+    if (this.props.dummydata[index].catagory === 'unsorted'){
         borderColor = unsortedBorder;
-    } else if (dummyData[index].catagory === 'chrono'){
+    } else if (this.props.dummydata[index].catagory === 'chrono'){
         borderColor = chronoBorder;
-    } else if (dummyData[index].catagory === 'family'){
+    } else if (this.props.dummydata[index].catagory === 'family'){
         borderColor = familyBorder;
-    } else if (dummyData[index].catagory === 'extended'){
+    } else if (this.props.dummydata[index].catagory === 'extended'){
         borderColor = extBorder;
-    } else if (dummyData[index].catagory === 'friends'){
+    } else if (this.props.dummydata[index].catagory === 'friends'){
         borderColor = friendsBorder;
-    } else if (dummyData[index].catagory === 'fun'){
+    } else if (this.props.dummydata[index].catagory === 'fun'){
         borderColor = funBorder;
     }
 
     return (
-        <div key={dummyData[index].number} id={dummyData[index].number} draggable="true" onDragStart={this.onDragOver}  className="draggableImg" style={borderColor} > 
-            <img  src={dummyData[index].awsUrl}  id={dummyData[index].number} alt="" className="img-responsive" />
+        <div key={this.props.dummydata[index].number} id={this.props.dummydata[index].number} draggable="true" onDragStart={this.onDragOver}  className="draggableImg" style={borderColor} > 
+            <img  src={this.props.dummydata[index].awsUrl}  id={this.props.dummydata[index].number} alt="" className="img-responsive" />
         </div>
         )
     })

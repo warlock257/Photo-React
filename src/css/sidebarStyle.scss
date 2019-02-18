@@ -15,11 +15,15 @@
 
 .checkContainer{
     display:flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.3rem;
     padding-right:50px;
-    p{
+    .checkContainer__count{
+        margin:0;
+        margin-left:40px;
+    }
+    .checkContainer__heading{
         margin:0;
         margin-right:40px;
     }

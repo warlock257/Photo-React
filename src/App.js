@@ -5,6 +5,7 @@ import './App.css';
 //import './css/jquery-ui.css';
 //import './js/popper.min.js';
 
+import './css/masterstyles.scss'
 import './css/topbarStyle.css';
 import './css/sidebarStyle.scss';
 import './css/signInStyles.css';
@@ -30,13 +31,21 @@ class App extends Component {
     this.state = {
       page: 1,
       name: 'none',
+      dummydata:dummyData,
       totalPhotos: dummyData.length,
       chronoPhotos: 0,
       famPhotos: 0,
       extPhotos: 0,
       friendsPhotos: 0,
-      funPhotos: 0
+      funPhotos: 0,
+      unsortedPhotoed: 0
     }
+  }
+
+  updateName = (ev) => {
+    ev.preventDefault();
+    var formData = ev.target.value;
+    this.setState({ name: formData });
   }
 
   signInNext= (ev) => {
@@ -67,6 +76,40 @@ orderClick=() => {
 completeClick=()=> {
   this.setState({page: 5});
 }   
+updateCatState = (copy) =>{
+  this.setState({ dummydata:copy })
+}
+updateCatCount = () =>{
+  let chronoCount = 0;
+  let familyCount = 0;
+  let extendedCount = 0;
+  let friendsCount = 0;
+  let funCount = 0;
+  let unsortedCount = 0;
+  for (let i = 0; i < this.state.dummydata.length; i++){
+    if (this.state.dummydata[i].catagory === 'chrono'){
+      chronoCount++
+    } else if (this.state.dummydata[i].catagory === 'family'){
+      familyCount++
+    }else if (this.state.dummydata[i].catagory === 'extended'){
+      extendedCount++
+    }else if (this.state.dummydata[i].catagory === 'friends'){
+      friendsCount++
+    }else if (this.state.dummydata[i].catagory === 'fun'){
+      funCount++
+    }else if (this.state.dummydata[i].catagory === 'unsorted'){
+      unsortedCount++
+    }
+  }
+  this.setState({
+    chronoPhotos:chronoCount,
+    famPhotos:familyCount,
+    extPhotos: extendedCount,
+    friendsPhotos: friendsCount,
+    funPhotos: funCount,
+    unsortedPhotoed: unsortedCount
+  })
+}
 
 render() {
 
@@ -86,8 +129,17 @@ render() {
   }
     else if (this.state.page === 3){
       console.log('page 3')
-      sidebar = <Sidebar3 totalPhotos={this.state.totalPhotos} />
-      mainPage = <Main3Cat />
+      sidebar = <Sidebar3 totalPhotos={this.state.totalPhotos}
+                          chronoPhotos={this.state.chronoPhotos}
+                          famPhotos={this.state.famPhotos}
+                          extPhotos={this.state.extPhotos}
+                          friendsPhotos={this.state.friendsPhotos}
+                          funPhotos={this.state.funPhotos}
+                          unsortedPhotoed={this.state.unsortedPhotoed}
+                          updateCatCount={this.updateCatCount} />
+      mainPage = <Main3Cat dummydata={this.state.dummydata}
+                           updateCatState={this.updateCatState}
+                           updateCatCount={this.updateCatCount}/>
   }
     else if (this.state.page === 4){
       console.log('page 4')
@@ -113,7 +165,7 @@ render() {
       orderClick={this.orderClick}
       completeClick={this.completeClick}
       />
-      <div className='row'>
+      <div className='lowerSection'>
         {sidebar}
         {mainPage}
       </div>

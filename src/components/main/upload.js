@@ -7,7 +7,7 @@ export default class Main2Upload extends Component {
 
       let images = dummyData.map(image => {
         return (
-            <div id={image.number} class="draggableImg"> 
+            <div id={image.number} className="draggableImg"> 
                 <img key={image.number} src={image.awsUrl} alt="" className="img-responsive" />
             </div>
             )
