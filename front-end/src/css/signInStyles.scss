@@ -1,0 +1,46 @@
+.signInDiv{
+    width: 76vw;
+    position: relative;;
+    h2{
+        position: absolute;
+        top: 70px;
+        width:100%;
+        text-align: center;
+        font-size: 3rem;
+    }
+}
+
+.heroImage{
+    width:100%;
+}
+.name-form{
+    position: relative;
+    .name-form-div{
+        position: absolute;
+        bottom: 15px;
+        left: 260px;
+        label{
+            color:white;
+        }
+        input{
+            height: 75px;
+            width: 500px;
+            font-size: 2rem;
+        }
+        .next-button{
+            margin-top:20px;
+            color:#fff;
+            background-color:#007bff;
+            border:none;
+            border-radius: 5px;
+            height: 3rem;
+            width:6rem;
+        }
+    }
+
+}
+
+
+
+
+

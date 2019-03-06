@@ -1,0 +1,25 @@
+
+picture upload working
+
+pg 2
+text instructions page 2
+pre-select catagory page 2
+pics not stretch
+
+pg3
+text instructions
+round corners on pics
+pics fill frame
+
+pg4
+ordering component
+
+pg 5
+zip files
+download
+send to company
+
+
+
+multimedia
+	animation instructions

@@ -48,7 +48,15 @@ postImg = (ev) =>{
           <h3 className="upload__title">Upload page</h3>
 
           <form className="upload__form" encType="multipart/form-data" onSubmit={this.postImg} ref={this.uploadForm}>
-            <input type="file" multiple name="pic" accept="image/*" />
+            <input type="file" multiple name="pic" accept="image/*" className="upload__chooseButton" />
+            <select className="preSelectCat" name="preSelectCat">
+              <option>--no category--</option>
+              <option>Chronological</option>
+              <option>Family</option>
+              <option>Extended Family</option>
+              <option>Friends</option>
+              <option>Fun</option>
+            </select>
             <input type="submit" className="upload__submitButton" />
           </form>
 

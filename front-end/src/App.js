@@ -8,9 +8,9 @@ import './App.css';
 import './css/masterstyles.scss'
 import './css/topbarStyle.css';
 import './css/sidebarStyle.scss';
-import './css/signInStyles.css';
+import './css/signInStyles.scss';
 import './css/upload-styles.scss';
-import './css/cat-mainStyle.css';
+import './css/cat-mainStyle.scss';
 
 import Topbar from './components/topbar/topbar.js';
 import Sidebar1 from './components/sidebar/sidebar1.js';
@@ -52,7 +52,7 @@ class App extends Component {
     ev.preventDefault();
     var formData = document.getElementById('nameField').value;
     console.log(formData);
-    this.setState({ name: formData });
+    //this.setState({name: formData})
     if(this.state.name === 'none'){
       alert("Enter a name before proceeding");
     } else {

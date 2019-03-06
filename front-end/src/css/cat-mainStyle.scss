@@ -26,15 +26,19 @@ html{
     margin: 10px 10px 10px 0; 
     border:solid black 3px;
     overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.8);
+    img{
+        width: auto;
+        height: 95%;
+        max-width: 95%;
+        max-height: 95%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
 }
-.draggableImg img{
-    width: auto;
-    height: auto;
-    max-width: 95%;
-    max-height: 95%;
-    display: block;
-    margin: 0 auto;
-}
+
 
 .droppable{ 
     width: 150px; 
