@@ -78,7 +78,7 @@ completeClick=()=> {
   this.setState({page: 5});
 }   
 updateCatState = (copy) =>{
-  this.setState({ dummydata:copy })
+  this.setState({ uploadedImgs:copy })
 }
 updateCatCount = () =>{
   let chronoCount = 0;
@@ -87,18 +87,18 @@ updateCatCount = () =>{
   let friendsCount = 0;
   let funCount = 0;
   let unsortedCount = 0;
-  for (let i = 0; i < this.state.dummydata.length; i++){
-    if (this.state.dummydata[i].catagory === 'chrono'){
+  for (let i = 0; i < this.state.uploadedImgs.length; i++){
+    if (this.state.uploadedImgs[i].catagory === 'chrono'){
       chronoCount++
-    } else if (this.state.dummydata[i].catagory === 'family'){
+    } else if (this.state.uploadedImgs[i].catagory === 'family'){
       familyCount++
-    }else if (this.state.dummydata[i].catagory === 'extended'){
+    }else if (this.state.uploadedImgs[i].catagory === 'extended'){
       extendedCount++
-    }else if (this.state.dummydata[i].catagory === 'friends'){
+    }else if (this.state.uploadedImgs[i].catagory === 'friends'){
       friendsCount++
-    }else if (this.state.dummydata[i].catagory === 'fun'){
+    }else if (this.state.uploadedImgs[i].catagory === 'fun'){
       funCount++
-    }else if (this.state.dummydata[i].catagory === 'unsorted'){
+    }else if (this.state.uploadedImgs[i].catagory === 'unsorted'){
       unsortedCount++
     }
   }
@@ -146,6 +146,7 @@ render() {
                           unsortedPhotoed={this.state.unsortedPhotoed}
                           updateCatCount={this.updateCatCount} />
       mainPage = <Main3Cat dummydata={this.state.dummydata}
+                          uploadedImgs={this.state.uploadedImgs}
                            updateCatState={this.updateCatState}
                            updateCatCount={this.updateCatCount}/>
   }
