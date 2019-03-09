@@ -14,7 +14,6 @@ var storage = multer.diskStorage({
    
   //imgName is the key, when posting
   var upload = multer({ storage: storage }).single('imgName')
-
  
   router.post('/', function (req, res) {
     upload(req, res, function (err) {

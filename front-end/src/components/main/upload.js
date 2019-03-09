@@ -6,6 +6,7 @@ export default class Main2Upload extends Component {
   constructor(){
     super()
     this.uploadForm = React.createRef;
+    //this.uploadedImgs = []
   }
 
 postImg = (ev) =>{
@@ -23,7 +24,6 @@ postImg = (ev) =>{
         'content-type':'application/json'
     }
   }
-
   axios.post(axConfig)
   .then((res)=>{
     console.log(res.data)
@@ -33,13 +33,39 @@ postImg = (ev) =>{
   })
 }
 
+componentDidMount(){
+  axios.get('http://localhost:8080/getPics')
+  .then((res) =>{
+    //console.log(res.data)
+    this.props.updateUploadedImgs(res.data);
+  })
+  .catch((err) =>{
+    console.log(err)
+  })
+}
+
+componentDidUpdate(){
+  axios.get('http://localhost:8080/getPics')
+  .then((res) =>{
+    if(res.data.length !== this.props.uploadedImgs.length){
+      //console.log(res.data)
+      //console.log(this.props.uploadedImgs)
+      this.props.updateUploadedImgs(res.data);
+    }
+  })
+  .catch((err) =>{
+    console.log(err)
+  })
+}
+
+
 
     render () {
-
-      let images = dummyData.map(image => {
+      //console.log(this.props.uploadedImgs);
+      let images = this.props.uploadedImgs.map(image => {
         return (
             <div id={image.number} className="draggableImg"> 
-                <img key={image.number} src={image.awsUrl} alt="" className="img-responsive" />
+                <img key={image.number} src={image.imgLocalUrl} alt="" className="img-responsive" />
             </div>
             )
      });

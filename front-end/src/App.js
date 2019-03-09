@@ -32,6 +32,7 @@ class App extends Component {
       page: 1,
       name: 'none',
       dummydata:dummyData,
+      uploadedImgs:[],
       totalPhotos: dummyData.length,
       chronoPhotos: 0,
       famPhotos: 0,
@@ -111,6 +112,12 @@ updateCatCount = () =>{
   })
 }
 
+updateUploadedImgs = (uploadedImgs) =>{
+  this.setState({
+    uploadedImgs:uploadedImgs
+  })
+}
+
 render() {
 
   //which page(s) to render by state
@@ -125,7 +132,8 @@ render() {
   } else if (this.state.page === 2){
       console.log('page 2')
       sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}/>
-      mainPage = <Main2Upload />
+      mainPage = <Main2Upload uploadedImgs={this.state.uploadedImgs}
+                              updateUploadedImgs={this.updateUploadedImgs} />
   }
     else if (this.state.page === 3){
       console.log('page 3')
