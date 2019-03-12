@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import axios from 'axios'
 import dummyData from '../dummyData';
+import UploadImage from './ReactUploadImage';
 
 export default class Main2Upload extends Component {
   constructor(){
@@ -73,18 +74,7 @@ componentDidUpdate(){
         <div className='upload'>
           <h3 className="upload__title">Upload page</h3>
 
-          <form className="upload__form" encType="multipart/form-data" onSubmit={this.postImg} ref={this.uploadForm}>
-            <input type="file" multiple name="pic" accept="image/*" className="upload__chooseButton" />
-            <select className="preSelectCat" name="preSelectCat">
-              <option>--no category--</option>
-              <option>Chronological</option>
-              <option>Family</option>
-              <option>Extended Family</option>
-              <option>Friends</option>
-              <option>Fun</option>
-            </select>
-            <input type="submit" className="upload__submitButton" />
-          </form>
+          <UploadImage />
 
           <h3 className="upload__receivedTitle">Received Photos:</h3>
           <div className="receivedImages">
@@ -99,3 +89,15 @@ componentDidUpdate(){
 
 
 
+//   <form className="upload__form" encType="multipart/form-data" onSubmit={this.postImg} ref={this.uploadForm}>
+//   <input type="file" multiple name="pic" accept="image/*" className="upload__chooseButton" />
+//   <select className="preSelectCat" name="preSelectCat">
+//     <option>--no category--</option>
+//     <option>Chronological</option>
+//     <option>Family</option>
+//     <option>Extended Family</option>
+//     <option>Friends</option>
+//     <option>Fun</option>
+//   </select>
+//   <input type="submit" className="upload__submitButton" />
+// </form>

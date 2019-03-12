@@ -19,12 +19,13 @@ var storage = multer.diskStorage({
     upload(req, res, function (err) {
       if (err instanceof multer.MulterError) {
         // A Multer error occurred when uploading.
+        console.log(err)
       } else if (err) {
         // An unknown error occurred when uploading.
         console.log(err)
       }
       res.json({
-          sucsess:true,
+          success:true,
           message:"Image Uploaded"
       })
    
