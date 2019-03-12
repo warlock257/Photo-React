@@ -18,43 +18,43 @@ export default class Main3Cat extends Component {
 
     onDropChrono = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.props.uploadedImgs)
-        copy[this.currentId].category = 'chrono'
+        const copy = Array.from(this.props.dummydata)
+        copy[this.currentId].catagory = 'chrono'
         this.props.updateCatState(copy);
         this.props.updateCatCount();
     }
     onDropFamily = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.props.uploadedImgs)
-        copy[this.currentId].category = 'family'
+        const copy = Array.from(this.props.dummydata)
+        copy[this.currentId].catagory = 'family'
         this.props.updateCatState(copy);
         this.props.updateCatCount();
     }
     onDropExtended = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.props.uploadedImgs)
-        copy[this.currentId].category = 'extended'
+        const copy = Array.from(this.props.dummydata)
+        copy[this.currentId].catagory = 'extended'
         this.props.updateCatState(copy);
         this.props.updateCatCount();
     }
     onDropFriends = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.props.uploadedImgs)
-        copy[this.currentId].category = 'friends'
+        const copy = Array.from(this.props.dummydata)
+        copy[this.currentId].catagory = 'friends'
         this.props.updateCatState(copy);
         this.props.updateCatCount();
     }
     onDropFun = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.props.uploadedImgs)
-        copy[this.currentId].category = 'fun'
+        const copy = Array.from(this.props.dummydata)
+        copy[this.currentId].catagory = 'fun'
         this.props.updateCatState(copy);
         this.props.updateCatCount();
     }
     onDropUnsorted = (ev) => {
         ev.preventDefault();
-        const copy = Array.from(this.props.uploadedImgs)
-        copy[this.currentId].category = 'unsorted'
+        const copy = Array.from(this.props.dummydata)
+        copy[this.currentId].catagory = 'unsorted'
         this.props.updateCatState(copy);
         this.props.updateCatCount();
     }
@@ -90,28 +90,29 @@ export default class Main3Cat extends Component {
         overflow:'hidden'
     };
 
-    let imageArray = this.props.uploadedImgs.map((object, index) =>{
+    let imageArray = this.props.dummydata.map((object, index) =>{
 
-    if (this.props.uploadedImgs[index].category === 'unsorted'){
+    if (this.props.dummydata[index].catagory === 'unsorted'){
         borderColor = unsortedBorder;
-    } else if (this.props.uploadedImgs[index].category === 'chrono'){
+    } else if (this.props.dummydata[index].catagory === 'chrono'){
         borderColor = chronoBorder;
-    } else if (this.props.uploadedImgs[index].category === 'family'){
+    } else if (this.props.dummydata[index].catagory === 'family'){
         borderColor = familyBorder;
-    } else if (this.props.uploadedImgs[index].category === 'extended'){
+    } else if (this.props.dummydata[index].catagory === 'extended'){
         borderColor = extBorder;
-    } else if (this.props.uploadedImgs[index].category === 'friends'){
+    } else if (this.props.dummydata[index].catagory === 'friends'){
         borderColor = friendsBorder;
-    } else if (this.props.uploadedImgs[index].category === 'fun'){
+    } else if (this.props.dummydata[index].catagory === 'fun'){
         borderColor = funBorder;
     }
 
     return (
-        <div key={this.props.uploadedImgs[index].number} id={this.props.uploadedImgs[index].number} draggable="true" onDragStart={this.onDragOver}  className="draggableImg" style={borderColor} > 
-            <img  src={this.props.uploadedImgs[index].imgLocalUrl}  id={this.props.uploadedImgs[index].number} alt="" className="img-responsive" />
+        <div key={this.props.dummydata[index].number} id={this.props.dummydata[index].number} draggable="true" onDragStart={this.onDragOver}  className="draggableImg" style={borderColor} > 
+            <img  src={this.props.dummydata[index].awsUrl}  id={this.props.dummydata[index].number} alt="" className="img-responsive" />
         </div>
         )
     })
+    
       return (
         <div className="catagorySection">
             <div className='catMain'>
