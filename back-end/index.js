@@ -100,11 +100,11 @@ app.post('/upload',(req,res) =>{
 
 
 
-//  -----------    PAGE 3   --------------  send uploaded pics
+//  -----------    PAGE 2   --------------  send uploaded pics
 
 app.get('/getPics', (req,res) =>{
-    let userFolder = 'tempImages'
-    const testFolder = `./public/${userFolder}/`;
+    //let userFolder = 'tempImages'
+    //const testFolder = `./public/${userFolder}/`;
 
     let imgNumber = 0
     let arrayOfImages = [];
@@ -116,14 +116,14 @@ app.get('/getPics', (req,res) =>{
       imgLocalUrl:''
     }
 
-    fs.readdir(testFolder, (err, files) => {
+    fs.readdir(userPath, (err, files) => {
       files.forEach(file => {
         imgObject = {
           number:imgNumber,
           originalFilename:file,
           newFilename:'',
           category:'unsorted',
-          imgLocalUrl:`http://localhost:8080/${userFolder}/${file}`
+          imgLocalUrl:`http://localhost:8080/uploads/${userName}/${file}`
         }
         arrayOfImages.push(imgObject)
         imgNumber++

@@ -36,6 +36,8 @@ postImg = (ev) =>{
 }
 
 componentDidMount(){
+  console.log("upload did mount")
+  console.log(this.props.uploadedImgs)
   axios.get('http://localhost:8080/getPics')
   .then((res) =>{
     //console.log(res.data)
@@ -47,6 +49,8 @@ componentDidMount(){
 }
 
 componentDidUpdate(){
+  console.log("upload did update")
+  console.log(this.props.uploadedImgs)
   axios.get('http://localhost:8080/getPics')
   .then((res) =>{
     if(res.data.length !== this.props.uploadedImgs.length){
@@ -76,7 +80,8 @@ componentDidUpdate(){
           <h3 className="upload__title">Upload page</h3>
 
           <DropzoneComp />
-          <UploadImage userName={this.props.name} />
+          <UploadImage userName={this.props.name}
+                       uploading={this.props.uploading} />
 
           <h3 className="upload__receivedTitle">Received Photos:</h3>
           <div className="receivedImages">

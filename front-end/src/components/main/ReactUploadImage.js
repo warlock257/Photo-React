@@ -6,7 +6,7 @@ class ReactUploadImage extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            file: null
+            file: null,
         };
     }
 
@@ -23,9 +23,11 @@ class ReactUploadImage extends Component {
             .then((res) => {
                 console.log("The file is successfully uploaded");
                 console.log(res.data)
+                this.props.uploading();
             }).catch((err) => {
                 console.log(err)
         });
+
     }
 
     onChange = (ev) => {

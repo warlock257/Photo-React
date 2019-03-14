@@ -40,7 +40,8 @@ class App extends Component {
       extPhotos: 0,
       friendsPhotos: 0,
       funPhotos: 0,
-      unsortedPhotoed: 0
+      unsortedPhotoed: 0,
+      uploading:false
     }
   }
 
@@ -127,8 +128,14 @@ updateCatCount = () =>{
     unsortedPhotoed: unsortedCount
   })
 }
+uploading=()=>{
+  console.log("uploading")
+  this.setState({uploading:true})
+  this.setState({uploading:false})
+}
 
 updateUploadedImgs = (uploadedImgs) =>{
+  console.log("update uploaded img fired")
   this.setState({
     uploadedImgs:uploadedImgs
   })
@@ -150,7 +157,8 @@ render() {
       sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}/>
       mainPage = <Main2Upload uploadedImgs={this.state.uploadedImgs}
                               updateUploadedImgs={this.updateUploadedImgs}
-                              userName={this.state.name} />
+                              userName={this.state.name}
+                              uploading={this.uploading} />
   }
     else if (this.state.page === 3){
       console.log('page 3')
