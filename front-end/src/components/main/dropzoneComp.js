@@ -41,7 +41,7 @@ class DropzoneComp extends Component {
             multiple
             onDrop={this.onImageDrop}
           >
-            <p class="dropzone-text">Drop images or click to select files to upload</p>
+            <p className="dropzone-text">Drop images or click to select files to upload</p>
           </Dropzone>
         </div>
       );

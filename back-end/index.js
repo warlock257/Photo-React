@@ -8,6 +8,7 @@ app.use(cors({
     origin:"http://localhost:3000"
 }))
 const fs = require('fs');
+var mv = require('mv');
 const PORT = 8080;
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -16,12 +17,22 @@ app.use(bodyParser.json())
 app.use(express.static('./public'));
 
 let userName='';
+let defaultPath='./public/uploads/';
+let userPath='./public/uploads/';
 
 //  -----------    PAGE 1   --------------  set user name
 
 app.post('/setname', (req,res) =>{
     userName = req.body.userName;
     console.log("server name set to: " + userName)
+    var tmpdir = `./public/uploads/tmp`;
+    userPath=`./public/uploads/${userName}`;
+    if (!fs.existsSync(tmpdir)){
+        fs.mkdirSync(tmpdir);
+    }
+    if (!fs.existsSync(userPath)){
+        fs.mkdirSync(userPath);
+    }
     res.send("User name set server side to: " + userName)
 })
 
@@ -31,7 +42,7 @@ app.post('/setname', (req,res) =>{
 
 //storage and how file is named
 const storage = multer.diskStorage({
-  destination:'./public/uploads/',
+  destination:`./public/uploads/tmp`,
   filename: function (req,file,cb){
   cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
@@ -66,6 +77,7 @@ function checkFileType(file, cb){
 //file.originalfilename is the original file name
 //file.filename is new file name
 app.post('/upload',(req,res) =>{
+  console.log("username: " + userName + " Path: " + userPath);
   upload(req,res,(err) => {
       if(err){
         console.log(err)
@@ -78,6 +90,7 @@ app.post('/upload',(req,res) =>{
           } else {
             console.log("file uploaded as: " + req.file.filename)
             res.send("file uploaded as: " + req.file.filename)
+            mv(`./public/uploads/tmp/${req.file.filename}`, `${userPath}/${req.file.filename}`, (err) =>{console.log(err)})
           }
       }
   })
