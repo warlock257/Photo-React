@@ -27,3 +27,15 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+.dropzone{
+    width: 500px;
+    height:150px;
+    border:thin dashed black;
+    margin:0 auto;
+    .dropzone-text{
+        position: relative;
+        top:60px;
+        text-align: center;
+    }
+}
