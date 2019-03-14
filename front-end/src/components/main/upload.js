@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import axios from 'axios'
-import dummyData from '../dummyData';
+//import dummyData from '../dummyData';
 import UploadImage from './ReactUploadImage';
 
 export default class Main2Upload extends Component {

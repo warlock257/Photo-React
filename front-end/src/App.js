@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import './App.css';
 //import './css/bootstrap.min.css';
 //import './js/jquery-3.3.1.slim.min.js';
@@ -51,12 +52,27 @@ class App extends Component {
 
   signInNext= (ev) => {
     ev.preventDefault();
-    var formData = document.getElementById('nameField').value;
-    console.log(formData);
-    //this.setState({name: formData})
+    //var formData = document.getElementById('nameField').value;
     if(this.state.name === 'none'){
       alert("Enter a name before proceeding");
     } else {
+      const axConfig = {
+        "method":"POST",
+        "url":"localhost:8080/setname",
+        "data":{
+            "userName":this.state.name
+        },headers:{
+          'content-type':'application/json'
+         }
+      }
+      axios.post(axConfig)
+      .then((res)=>{
+        console.log(res.data)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+
       this.setState({page: 2});
     }
   }

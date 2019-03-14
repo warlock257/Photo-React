@@ -15,6 +15,20 @@ app.use(bodyParser.json())
 
 app.use(express.static('./public'));
 
+let userName='';
+
+//  -----------    PAGE 1   --------------  set user name
+
+app.post('/setname', (req,res) =>{
+    userName = req.body.userName;
+    console.log("server name set to: " + userName)
+    res.send("User name set server side to: " + userName)
+})
+
+
+
+//  -----------    PAGE 2   --------------  Upload photos
+
 //storage and how file is named
 const storage = multer.diskStorage({
   destination:'./public/uploads/',
@@ -33,6 +47,7 @@ const upload = multer({
       }
   }
 }).single('myImage');
+//put in a name variable instead of my image
 
 
 //check file type function
@@ -69,6 +84,10 @@ app.post('/upload',(req,res) =>{
 })
 
 
+
+
+
+//  -----------    PAGE 3   --------------  send uploaded pics
 
 app.get('/getPics', (req,res) =>{
     let userFolder = 'tempImages'
