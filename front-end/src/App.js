@@ -58,14 +58,14 @@ class App extends Component {
     } else {
       const axConfig = {
         "method":"POST",
-        "url":"localhost:8080/setname",
+        "url":"http://localhost:8080/setname",
         "data":{
             "userName":this.state.name
         },headers:{
           'content-type':'application/json'
          }
       }
-      axios.post(axConfig)
+      axios(axConfig)
       .then((res)=>{
         console.log(res.data)
       })
@@ -149,7 +149,8 @@ render() {
       console.log('page 2')
       sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}/>
       mainPage = <Main2Upload uploadedImgs={this.state.uploadedImgs}
-                              updateUploadedImgs={this.updateUploadedImgs} />
+                              updateUploadedImgs={this.updateUploadedImgs}
+                              userName={this.state.name} />
   }
     else if (this.state.page === 3){
       console.log('page 3')

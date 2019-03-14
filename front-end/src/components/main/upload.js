@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import axios from 'axios'
 //import dummyData from '../dummyData';
-//import UploadImage from './ReactUploadImage';
+import UploadImage from './ReactUploadImage';
 import DropzoneComp from './dropzoneComp'
 
 export default class Main2Upload extends Component {
@@ -76,6 +76,7 @@ componentDidUpdate(){
           <h3 className="upload__title">Upload page</h3>
 
           <DropzoneComp />
+          <UploadImage userName={this.props.name} />
 
           <h3 className="upload__receivedTitle">Received Photos:</h3>
           <div className="receivedImages">

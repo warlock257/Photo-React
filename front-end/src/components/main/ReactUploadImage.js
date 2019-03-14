@@ -36,7 +36,7 @@ class ReactUploadImage extends Component {
         return (
             <form onSubmit={this.onFormSubmit}>
 
-                <input type="file" name="myImage" onChange= {this.onChange} />
+                <input type="file" multiple name='myImage' onChange= {this.onChange} />
                 <button type="submit">Upload</button>
             </form>
         )
