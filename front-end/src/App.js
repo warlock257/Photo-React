@@ -169,8 +169,10 @@ render() {
                           friendsPhotos={this.state.friendsPhotos}
                           funPhotos={this.state.funPhotos}
                           unsortedPhotoed={this.state.unsortedPhotoed}
-                          updateCatCount={this.updateCatCount} />
+                          updateCatCount={this.updateCatCount}
+                           />
       mainPage = <Main3Cat dummydata={this.state.dummydata}
+                           uploadedImgs={this.state.uploadedImgs}
                            updateCatState={this.updateCatState}
                            updateCatCount={this.updateCatCount}/>
   }
