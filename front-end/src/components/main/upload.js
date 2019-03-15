@@ -77,7 +77,7 @@ componentDidUpdate(){
      });
       return (
         <div className='upload'>
-          <h3 className="upload__title">Upload page</h3>
+          {/* <h3 className="upload__title">Upload page</h3> */}
 
           <DropzoneComp />
           <UploadImage userName={this.props.name}

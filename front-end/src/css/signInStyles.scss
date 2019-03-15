@@ -12,12 +12,13 @@
 
 .heroImage{
     width:100%;
+    padding:18px;
 }
 .name-form{
     position: relative;
     .name-form-div{
         position: absolute;
-        bottom: 15px;
+        bottom: 35px;
         left: 260px;
         label{
             color:white;
@@ -28,7 +29,7 @@
             font-size: 2rem;
         }
         .next-button{
-            margin-top:20px;
+            margin-top:10px;
             color:#fff;
             background-color:#007bff;
             border:none;

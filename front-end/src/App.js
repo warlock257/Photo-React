@@ -35,7 +35,7 @@ class App extends Component {
       name: 'none',
       dummydata:dummyData,
       uploadedImgs:[],
-      totalPhotos: dummyData.length,
+      totalPhotos: 0,
       chronoPhotos: 0,
       famPhotos: 0,
       extPhotos: 0,
@@ -96,7 +96,7 @@ completeClick=()=> {
   this.setState({page: 5});
 }   
 updateCatState = (copy) =>{
-  this.setState({ dummydata:copy })
+  this.setState({ uploadedImgs:copy })
 }
 updateCatCount = () =>{
   let chronoCount = 0;
@@ -105,18 +105,18 @@ updateCatCount = () =>{
   let friendsCount = 0;
   let funCount = 0;
   let unsortedCount = 0;
-  for (let i = 0; i < this.state.dummydata.length; i++){
-    if (this.state.dummydata[i].catagory === 'chrono'){
+  for (let i = 0; i < this.state.uploadedImgs.length; i++){
+    if (this.state.uploadedImgs[i].category === 'chrono'){
       chronoCount++
-    } else if (this.state.dummydata[i].catagory === 'family'){
+    } else if (this.state.uploadedImgs[i].category === 'family'){
       familyCount++
-    }else if (this.state.dummydata[i].catagory === 'extended'){
+    }else if (this.state.uploadedImgs[i].category === 'extended'){
       extendedCount++
-    }else if (this.state.dummydata[i].catagory === 'friends'){
+    }else if (this.state.uploadedImgs[i].category === 'friends'){
       friendsCount++
-    }else if (this.state.dummydata[i].catagory === 'fun'){
+    }else if (this.state.uploadedImgs[i].category === 'fun'){
       funCount++
-    }else if (this.state.dummydata[i].catagory === 'unsorted'){
+    }else if (this.state.uploadedImgs[i].category === 'unsorted'){
       unsortedCount++
     }
   }
@@ -155,7 +155,8 @@ render() {
                             signInNext={this.signInNext} />
   } else if (this.state.page === 2){
       console.log('page 2')
-      sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}/>
+      sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}
+                          uploadedImgs={this.state.uploadedImgs}/>
       mainPage = <Main2Upload uploadedImgs={this.state.uploadedImgs}
                               updateUploadedImgs={this.updateUploadedImgs}
                               userName={this.state.name}
@@ -171,6 +172,7 @@ render() {
                           funPhotos={this.state.funPhotos}
                           unsortedPhotoed={this.state.unsortedPhotoed}
                           updateCatCount={this.updateCatCount}
+                          uploadedImgs={this.state.uploadedImgs}
                            />
       mainPage = <Main3Cat dummydata={this.state.dummydata}
                            uploadedImgs={this.state.uploadedImgs}
@@ -180,7 +182,7 @@ render() {
     else if (this.state.page === 4){
       console.log('page 4')
       sidebar = <Sidebar4 />
-      mainPage = <Main4Order />
+      mainPage = <Main4Order uploadedImgs={this.state.uploadedImgs} />
   }
     else if (this.state.page === 5){
       console.log('page 5')

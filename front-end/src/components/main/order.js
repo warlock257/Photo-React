@@ -5,10 +5,11 @@ import ParcelDrag from 'react-dataparcels-drag';
 
 const FruitListParcelHoc = ParcelHoc({
     name: "fruitListParcel",
-    valueFromProps: (/* props */) => [
+    valueFromProps: (uploadedImgs /* props */) => [
         "Apple",
         "Banana",
-        "Crumpets"
+        "Crumpets",
+        "milk"
     ]
 });
 

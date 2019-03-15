@@ -115,6 +115,7 @@ export default class Main3Cat extends Component {
     
       return (
         <div className="catagorySection">
+        <h3>Drag your photos onto the coloured boxes to set a category</h3>
             <div className='catMain'>
 
                     <div id="droppable-chrono" className="droppable ui-widget-header chrono-box"

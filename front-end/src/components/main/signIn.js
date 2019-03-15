@@ -21,7 +21,9 @@ export default class Main1Sign extends Component {
               <label htmlFor="nameField">Enter your last name</label>
               <input type="text" ref="nameField" name="nameField" className="form-control form-control-lg" 
               id="nameField" placeholder="Name" onChange={this.props.updateName} />
+
               <button className="next-button">Next</button>
+
             </div>
             
           </form>

@@ -103,3 +103,35 @@ input[type=checkbox]
 .black-text{
     color:black;
 }
+
+.sidebar2Text{
+    width:70%;
+    margin:0 auto;
+    margin-bottom:50px;
+}
+
+.next-button{
+    margin-top:10px;
+    margin-left: 25px;
+    color:#fff;
+    background-color:#007bff;
+    border:none;
+    border-radius: 5px;
+    height: 3rem;
+    width:6rem;
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+}
+.back-button{
+    margin-top:10px;
+    color:#fff;
+    background-color:#ff0062;
+    border:none;
+    border-radius: 5px;
+    height: 3rem;
+    width:6rem;
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+}
+
+.radioLabel{
+    margin-right:20px;
+}

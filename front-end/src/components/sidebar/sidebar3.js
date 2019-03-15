@@ -11,7 +11,7 @@ export default class Sidebar3 extends Component {
         <div className="sidebar">
 
             <p>Total number of pictures received:</p>
-            <h2>{this.props.totalPhotos}</h2>
+            <h2>{this.props.uploadedImgs.length}</h2>
             <hr />
 
             <div className="checkContainer">
@@ -54,6 +54,9 @@ export default class Sidebar3 extends Component {
                 <p className="checkContainer__heading">Unsorted: </p>        
                 <input type="checkbox" />
             </div>
+        <br />
+        <button className="back-button">Back</button>
+        <button className="next-button">Next</button>
 
         </div>
     )}
