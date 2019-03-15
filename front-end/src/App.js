@@ -12,6 +12,7 @@ import './css/sidebarStyle.scss';
 import './css/signInStyles.scss';
 import './css/upload-styles.scss';
 import './css/cat-mainStyle.scss';
+import './css/order-styles.scss';
 
 import Topbar from './components/topbar/topbar.js';
 import Sidebar1 from './components/sidebar/sidebar1.js';
