@@ -14,10 +14,12 @@ const SortableContainer = sortableContainer(({children}) => {
   return <ul>{children}</ul>;
 });
 
+
+
 class Main4Order extends Component {
   state = {
      //items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
-    items: this.props.uploadedImgs
+    items: this.props.loadedArray
   };
 
   onSortEnd = ({oldIndex, newIndex}) => {

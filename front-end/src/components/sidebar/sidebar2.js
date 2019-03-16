@@ -8,6 +8,7 @@ export default class Sidebar2 extends Component {
       }
     }
 
+
 render(){
     return(
         <div className="sidebar">
@@ -23,7 +24,7 @@ render(){
         <h2>{this.props.uploadedImgs.length}</h2>
 
         <button className="back-button">Back</button>
-        <button className="next-button">Next</button>
+        <button className="next-button" onClick={this.props.catClick}>Next</button>
 
         </div>
     )}

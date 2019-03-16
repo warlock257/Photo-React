@@ -49,8 +49,8 @@ componentDidMount(){
 }
 
 componentDidUpdate(){
-  console.log("upload did update")
-  console.log(this.props.uploadedImgs)
+  // console.log("upload did update")
+  // console.log(this.props.uploadedImgs)
   axios.get('http://localhost:8080/getPics')
   .then((res) =>{
     if(res.data.length !== this.props.uploadedImgs.length){

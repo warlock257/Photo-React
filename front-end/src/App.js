@@ -42,9 +42,36 @@ class App extends Component {
       friendsPhotos: 0,
       funPhotos: 0,
       unsortedPhotoed: 0,
-      uploading:false
+      uploading:false,
+      chronoArray: [],
+      familyArray: [],
+      extArray: [],
+      friendsArray: [],
+      funArray: [],
+      unsortedArray: [],
+      loadedArray:[]
     }
   }
+  
+  //PAGE CHANGE FUNCTIONS
+
+  signInClick=() => {
+    this.setState({page: 1});
+  } 
+  uploadClick=() => {
+    this.setState({page: 2});
+  }  
+  catClick=() => {
+    this.setState({page: 3});
+  }  
+  orderClick=() => {
+    this.setState({page: 4});
+  }  
+  completeClick=()=> {
+    this.setState({page: 5});
+  }  
+
+  // PAGE 1 FUNCTIONS
 
   updateName = (ev) => {
     ev.preventDefault();
@@ -79,22 +106,24 @@ class App extends Component {
     }
   }
   
+  //PAGE 2 FUNCTIONS
   
-signInClick=() => {
-  this.setState({page: 1});
-} 
-uploadClick=() => {
-  this.setState({page: 2});
-}  
-catClick=() => {
-  this.setState({page: 3});
-}  
-orderClick=() => {
-  this.setState({page: 4});
-}  
-completeClick=()=> {
-  this.setState({page: 5});
-}   
+  uploading=()=>{
+    console.log("uploading")
+    this.setState({uploading:true})
+    this.setState({uploading:false})
+  }
+  
+  updateUploadedImgs = (uploadedImgs) =>{
+    console.log("update uploaded img fired")
+    this.setState({
+      uploadedImgs:uploadedImgs
+    })
+  }
+
+
+  // PAGE 3 FUNCTIONS
+
 updateCatState = (copy) =>{
   this.setState({ uploadedImgs:copy })
 }
@@ -129,17 +158,35 @@ updateCatCount = () =>{
     unsortedPhotoed: unsortedCount
   })
 }
-uploading=()=>{
-  console.log("uploading")
-  this.setState({uploading:true})
-  this.setState({uploading:false})
+updateCategoryArrays = (chronoArray,familyArray,extArray,friendsArray,funArray,unsortedArray) =>{
+  this.setState({
+    chronoArray: chronoArray,
+    familyArray: familyArray,
+    extArray: extArray,
+    friendsArray: friendsArray,
+    funArray: funArray,
+    unsortedArray: unsortedArray
+  })
 }
 
-updateUploadedImgs = (uploadedImgs) =>{
-  console.log("update uploaded img fired")
-  this.setState({
-    uploadedImgs:uploadedImgs
-  })
+
+//PAGE 4 FUNCTIONS
+
+orderFilter = (catToOrder) =>{
+  console.log("ordering "+ catToOrder)
+  if (catToOrder === "chrono"){
+    this.setState({loadedArray:this.state.chronoArray})
+  } else if (catToOrder === "family"){
+    this.setState({loadedArray:this.state.familyArray})
+  } else if (catToOrder === "extended"){
+    this.setState({loadedArray:this.state.extArray})
+  } else if (catToOrder === "friends"){
+    this.setState({loadedArray:this.state.friendsArray})
+  } else if (catToOrder === "fun"){
+    this.setState({loadedArray:this.state.funArray})
+  } else if (catToOrder === "unsorted"){
+    this.setState({loadedArray:this.state.unsortedArray})
+  }
 }
 
 render() {
@@ -156,7 +203,8 @@ render() {
   } else if (this.state.page === 2){
       console.log('page 2')
       sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}
-                          uploadedImgs={this.state.uploadedImgs}/>
+                          uploadedImgs={this.state.uploadedImgs}
+                          catClick={this.catClick}/>
       mainPage = <Main2Upload uploadedImgs={this.state.uploadedImgs}
                               updateUploadedImgs={this.updateUploadedImgs}
                               userName={this.state.name}
@@ -173,6 +221,7 @@ render() {
                           unsortedPhotoed={this.state.unsortedPhotoed}
                           updateCatCount={this.updateCatCount}
                           uploadedImgs={this.state.uploadedImgs}
+                          updateCategoryArrays={this.updateCategoryArrays}
                            />
       mainPage = <Main3Cat dummydata={this.state.dummydata}
                            uploadedImgs={this.state.uploadedImgs}
@@ -181,8 +230,9 @@ render() {
   }
     else if (this.state.page === 4){
       console.log('page 4')
-      sidebar = <Sidebar4 />
-      mainPage = <Main4Order uploadedImgs={this.state.uploadedImgs} />
+      sidebar = <Sidebar4 orderFilter={this.orderFilter}  />
+      mainPage = <Main4Order uploadedImgs={this.state.uploadedImgs}
+                              loadedArray={this.state.loadedArray} />
   }
     else if (this.state.page === 5){
       console.log('page 5')
