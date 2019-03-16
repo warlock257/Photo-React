@@ -1,37 +1,44 @@
-import React from 'react';
-import ParcelHoc from 'react-dataparcels/ParcelHoc';
-import ParcelBoundary from 'react-dataparcels/ParcelBoundary';
-import ParcelDrag from 'react-dataparcels-drag';
+import React, {Component} from 'react';
+//import {render} from 'react-dom';
+import {sortableContainer, sortableElement} from 'react-sortable-hoc';
+import arrayMove from 'array-move';
 
-const FruitListParcelHoc = ParcelHoc({
-    name: "fruitListParcel",
-    valueFromProps: (uploadedImgs /* props */) => [
-        "Apple",
-        "Banana",
-        "Crumpets",
-        "milk"
-    ]
+const SortableItem = sortableElement(({value}) => 
+// <li>{value}</li>
+<div className="sortablePic">
+<img src={value.imgLocalUrl} alt={value.imgLocalUrl} />
+</div>
+);
+
+const SortableContainer = sortableContainer(({children}) => {
+  return <ul>{children}</ul>;
 });
 
-const SortableFruitList = ParcelDrag({
-    element: (fruitParcel) => <ParcelBoundary parcel={fruitParcel}>
-        {(parcel) => <div className="Box-draggable">
-            <input type="text" {...parcel.spreadDOM()} />
-            <button onClick={() => parcel.insertAfter(`${parcel.value} copy`)}>+</button>
-            <button onClick={() => parcel.delete()}>x</button>
-            <img src="tester.jpg" alt=""/>
-        </div>}
-    </ParcelBoundary>
-});
+class Main4Order extends Component {
+  state = {
+     //items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
+    items: this.props.uploadedImgs
+  };
 
-const FruitListEditor = (props) => {
-    let {fruitListParcel} = props;
-    return <div className="sortableOuter">
-        <SortableFruitList parcel={fruitListParcel} />
-        <button onClick={() => fruitListParcel.push("New fruit")}>Add new fruit</button>
-    </div>;
-};
+  onSortEnd = ({oldIndex, newIndex}) => {
+    this.setState(({items}) => ({
+      items: arrayMove(items, oldIndex, newIndex),
+    }));
+  };
 
-export default FruitListParcelHoc(FruitListEditor);
+  render() {
+    const {items} = this.state;
 
+    return (
+      <SortableContainer onSortEnd={this.onSortEnd}>
+        {items.map((value, index) => (
+          <SortableItem key={`item-${index}`} index={index} value={value} />
+        ))}
+      </SortableContainer>
+    );
+  }
+}
 
+export default Main4Order
+
+//render(<App />, document.getElementById('root'));
