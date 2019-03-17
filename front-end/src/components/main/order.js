@@ -18,35 +18,38 @@ const SortableContainer = sortableContainer(({children}) => {
 
 class Main4Order extends Component {
   state = {
-     //items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
-    items: []
+    //items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
+    //items: []
   };
 
-  componentDidMount(){
-    this.setState({
-      items:this.props.loadedArray
-    })
-  }
 
-  componentDidUpdate(){
-    if(this.state.items[0] !== this.props.loadedArray[0] ){
-      this.setState({
-        items:this.props.loadedArray
-      })
-    }
-  }
 
-  onSortEnd = ({oldIndex, newIndex}) => {
-    this.setState(({items}) => ({
-      items: arrayMove(items, oldIndex, newIndex),
-    }));
-  };
+  //MOVED TO APP
+  // onSortEnd = ({oldIndex, newIndex}) => {
+  //   this.setState(({items}) => ({
+  //     items: arrayMove(items, oldIndex, newIndex),
+  //   }));
+  // };
 
   render() {
-    const {items} = this.state;
+    let items = []
+    if(this.props.loadedArray === "chrono"){
+      items = this.props.chronoArray
+    } else if (this.props.loadedArray === "family") {
+      items = this.props.familyArray
+    }else if (this.props.loadedArray === "extended") {
+      items = this.props.extArray
+    }else if (this.props.loadedArray === "friends") {
+      items = this.props.friendsArray
+    }else if (this.props.loadedArray === "fun") {
+      items = this.props.funArray
+    }else if (this.props.loadedArray === "unsorted") {
+      items = this.props.unsortedArray
+    }
 
+    
     return (
-      <SortableContainer onSortEnd={this.onSortEnd}>
+      <SortableContainer onSortEnd={this.props.onSortEnd}>
         {items.map((value, index) => (
           <SortableItem key={`item-${index}`} index={index} value={value} />
         ))}
@@ -56,5 +59,3 @@ class Main4Order extends Component {
 }
 
 export default Main4Order
-
-//render(<App />, document.getElementById('root'));

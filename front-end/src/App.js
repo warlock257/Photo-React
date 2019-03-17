@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
+import {sortableContainer, sortableElement} from 'react-sortable-hoc';
+import arrayMove from 'array-move';
 //import './css/bootstrap.min.css';
 //import './js/jquery-3.3.1.slim.min.js';
 //import './css/jquery-ui.css';
@@ -50,7 +52,7 @@ class App extends Component {
       friendsArray: [],
       funArray: [],
       unsortedArray: [],
-      loadedArray:[]
+      loadedArray:"chrono"
     }
   }
   
@@ -176,19 +178,51 @@ updateCategoryArrays = (chronoArray,familyArray,extArray,friendsArray,funArray,u
 orderFilter = (catToOrder) =>{
   console.log("ordering "+ catToOrder)
   if (catToOrder === "chrono"){
-    this.setState({loadedArray:this.state.chronoArray})
+    this.setState({loadedArray:"chrono"})
   } else if (catToOrder === "family"){
-    this.setState({loadedArray:this.state.familyArray})
+    this.setState({loadedArray:"family"})
   } else if (catToOrder === "extended"){
-    this.setState({loadedArray:this.state.extArray})
+    this.setState({loadedArray:"extended"})
   } else if (catToOrder === "friends"){
-    this.setState({loadedArray:this.state.friendsArray})
+    this.setState({loadedArray:"friends"})
   } else if (catToOrder === "fun"){
-    this.setState({loadedArray:this.state.funArray})
+    this.setState({loadedArray:"fun"})
   } else if (catToOrder === "unsorted"){
-    this.setState({loadedArray:this.state.unsortedArray})
+    this.setState({loadedArray:"unsorted"})
   }
 }
+
+onSortEnd = ({oldIndex, newIndex}) => {
+  
+  if (this.state.loadedArray === "chrono"){
+    this.setState(({items}) => ({
+      chronoArray: arrayMove(this.state.chronoArray, oldIndex, newIndex),
+    }));
+  } else if (this.state.loadedArray ==="family"){
+    this.setState(({items}) => ({
+      familyArray: arrayMove(this.state.familyArray, oldIndex, newIndex),
+    }));
+  }else if (this.state.loadedArray ==="extended"){
+    this.setState(({items}) => ({
+      extArray: arrayMove(this.state.extArray, oldIndex, newIndex),
+    }));
+  } else if (this.state.loadedArray ==="friends"){
+    this.setState(({items}) => ({
+      friendsArray: arrayMove(this.state.friendsArray, oldIndex, newIndex),
+    }));
+  }else if (this.state.loadedArray ==="fun"){
+    this.setState(({items}) => ({
+      funArray: arrayMove(this.state.funArray, oldIndex, newIndex),
+    }));
+  }else if (this.state.loadedArray ==="unsorted"){
+    this.setState(({items}) => ({
+      unsortedArray: arrayMove(this.state.unsortedArray, oldIndex, newIndex),
+    }));
+  }
+};
+
+
+
 
 render() {
 
@@ -233,7 +267,15 @@ render() {
       console.log('page 4')
       sidebar = <Sidebar4 orderFilter={this.orderFilter}  />
       mainPage = <Main4Order uploadedImgs={this.state.uploadedImgs}
-                              loadedArray={this.state.loadedArray} />
+                              loadedArray={this.state.loadedArray}
+                              chronoArray={this.state.chronoArray}
+                              familyArray={this.state.familyArray}
+                              extArray={this.state.extArray}
+                              friendsArray={this.state.friendsArray}
+                              funArray={this.state.funArray}
+                              unsortedArray={this.state.unsortedArray}
+                              onSortEnd={this.onSortEnd} />
+
   }
     else if (this.state.page === 5){
       console.log('page 5')
