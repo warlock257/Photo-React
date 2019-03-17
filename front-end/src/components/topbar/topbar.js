@@ -66,7 +66,7 @@ export default class Topbar extends Component {
                 <div className={circle5} id="complete" onClick={this.props.completeClick}><span className="circle-text-complete">Complete</span></div>
             </div>
             
-            <div className="col-md-2">
+            <div className="col-md-2 topbarName">
               <h3>Welcome</h3>
               <h3>{this.props.name}</h3>
             </div>

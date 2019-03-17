@@ -18,7 +18,7 @@ html{
     justify-content: space-evenly;
     position: sticky;
     top:20px;
-    background-color: white;
+    background-color: whitesmoke;
 }
 
 .imageArea{
@@ -56,6 +56,10 @@ html{
     margin: 10px;
     border: black solid 2px;
     font-size: 1.2rem;
+    border-radius: 5px;
+    p{
+        padding-top:22px;
+    }
 }
 
 .chrono-box {

@@ -12,13 +12,10 @@ render(){
     return(
         <div className="sidebar ">
 
-        <h3>Sign in Page </h3>
-
-        <h4>Instructions</h4>
+        <h2 className="sidebar-heading">Instructions</h2>
         <div className="sidebar1Text">
-           <p>Enter your name, and click next</p>
+           <p>Enter your last name, and click next</p>
            <p>If returning from a previous session, make sure the name entered, is the same</p>
-            <p>You can navigate between the 5 pages with the circles above</p>
         </div>
 
         </div>

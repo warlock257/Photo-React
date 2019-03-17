@@ -6,7 +6,7 @@ import arrayMove from 'array-move';
 const SortableItem = sortableElement(({value}) => 
 // <li>{value}</li>
 <div className="sortablePic">
-<img src={value.imgLocalUrl} alt={value.imgLocalUrl} />
+  <img src={value.imgLocalUrl} alt={value.imgLocalUrl} />
 </div>
 );
 
@@ -19,8 +19,22 @@ const SortableContainer = sortableContainer(({children}) => {
 class Main4Order extends Component {
   state = {
      //items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
-    items: this.props.loadedArray
+    items: []
   };
+
+  componentDidMount(){
+    this.setState({
+      items:this.props.loadedArray
+    })
+  }
+
+  componentDidUpdate(){
+    if(this.state.items[0] !== this.props.loadedArray[0] ){
+      this.setState({
+        items:this.props.loadedArray
+      })
+    }
+  }
 
   onSortEnd = ({oldIndex, newIndex}) => {
     this.setState(({items}) => ({

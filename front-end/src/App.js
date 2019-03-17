@@ -13,6 +13,7 @@ import './css/signInStyles.scss';
 import './css/upload-styles.scss';
 import './css/cat-mainStyle.scss';
 import './css/order-styles.scss';
+import './fonts/stylesheet.css';
 
 import Topbar from './components/topbar/topbar.js';
 import Sidebar1 from './components/sidebar/sidebar1.js';
@@ -222,7 +223,7 @@ render() {
                           updateCatCount={this.updateCatCount}
                           uploadedImgs={this.state.uploadedImgs}
                           updateCategoryArrays={this.updateCategoryArrays}
-                           />
+                          orderClick={this.orderClick} />
       mainPage = <Main3Cat dummydata={this.state.dummydata}
                            uploadedImgs={this.state.uploadedImgs}
                            updateCatState={this.updateCatState}
@@ -243,20 +244,20 @@ render() {
 
 
     return (
-      <div>
-      <Topbar 
-      name={this.state.name}
-      page={this.state.page}
-      signInClick={this.signInClick}
-      uploadClick={this.uploadClick}
-      catClick={this.catClick}
-      orderClick={this.orderClick}
-      completeClick={this.completeClick}
-      />
-      <div className='lowerSection'>
-        {sidebar}
-        {mainPage}
-      </div>
+      <div className="photo-react">
+        <Topbar 
+        name={this.state.name}
+        page={this.state.page}
+        signInClick={this.signInClick}
+        uploadClick={this.uploadClick}
+        catClick={this.catClick}
+        orderClick={this.orderClick}
+        completeClick={this.completeClick}
+        />
+        <div className='lowerSection'>
+          {sidebar}
+          {mainPage}
+        </div>
       </div>
     );
   }

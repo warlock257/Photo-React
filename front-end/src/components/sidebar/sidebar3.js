@@ -70,6 +70,7 @@ export default class Sidebar3 extends Component {
         this.props.updateCategoryArrays(chronoArray,familyArray,extArray,friendsArray,funArray,unsortedArray)
 
         //change the page to 4
+        this.props.orderClick();
     }
     
     render(){
@@ -83,43 +84,38 @@ export default class Sidebar3 extends Component {
 
             <div className="checkContainer">
                 <p className="checkContainer__count">{this.props.chronoPhotos}</p>
-                <p className="checkContainer__heading">Chronological:</p>
-                <input type="checkbox" />
+                <p className="checkContainer__heading">Chronological</p>
+                
             </div>
             <hr />
 
             <div className="checkContainer">
                 <p className="checkContainer__count">{this.props.famPhotos}</p>
-                <p className="checkContainer__heading">Family: </p>
-                <input type="checkbox"  />
+                <p className="checkContainer__heading">Family</p>
             </div>
             <hr />
 
             <div className="checkContainer">
                 <p className="checkContainer__count">{this.props.extPhotos}</p>
-                <p className="checkContainer__heading">Extended: </p>
-                <input type="checkbox" />
+                <p className="checkContainer__heading">Extended</p>
             </div>
 
             <hr />
                 <div className="checkContainer">
                     <p className="checkContainer__count">{this.props.friendsPhotos}</p>
-                    <p className="checkContainer__heading">Friends: </p>
-                    <input type="checkbox" />
+                    <p className="checkContainer__heading">Friends</p>
             </div>
             <hr />
 
             <div className="checkContainer">
                 <p className="checkContainer__count">{this.props.funPhotos}</p>
-                <p className="checkContainer__heading">Fun: </p>
-                <input type="checkbox" />
+                <p className="checkContainer__heading">Fun</p>
             </div>
             <hr />
 
             <div className="checkContainer">
                 <p className="checkContainer__count">{this.props.unsortedPhotoed}</p>
-                <p className="checkContainer__heading">Unsorted: </p>        
-                <input type="checkbox" />
+                <p className="checkContainer__heading">Unsorted</p>        
             </div>
         <br />
         <button className="back-button">Back</button>

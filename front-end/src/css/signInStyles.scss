@@ -1,6 +1,9 @@
 .signInDiv{
     width: 76vw;
-    position: relative;;
+    position: relative;
+    background-image: url('seaside.jpg');
+    background-size: cover;
+    background-position: center;
     h2{
         position: absolute;
         top: 70px;
@@ -11,22 +14,24 @@
 }
 
 .heroImage{
-    width:100%;
-    padding:18px;
+    width:130%;
+    right:10px;
+    //padding:18px;
 }
 .name-form{
     position: relative;
     .name-form-div{
         position: absolute;
-        bottom: 35px;
+        top: 140px;
         left: 260px;
         label{
-            color:white;
+            color:black;
         }
         input{
             height: 75px;
             width: 500px;
             font-size: 2rem;
+            padding-top:16px;
         }
         .next-button{
             margin-top:10px;
@@ -36,12 +41,16 @@
             border-radius: 5px;
             height: 3rem;
             width:6rem;
+            margin-left:0;
+            
         }
     }
 
 }
 
-
+.signin-button{
+    box-shadow: none;
+}
 
 
 

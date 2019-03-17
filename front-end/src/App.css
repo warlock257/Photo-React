@@ -30,3 +30,8 @@
     transform: rotate(360deg);
   }
 }
+
+.photo-react{
+  font-family: 'AvenirNext LT Pro';
+  background-color:whitesmoke;
+}

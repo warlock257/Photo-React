@@ -14,7 +14,7 @@ export default class Main1Sign extends Component {
       return (
         <div className='signInDiv'>
             <h2>Welcome to our Photo Organizer</h2>
-            <img src="seaside.jpg" alt="family hero" className="heroImage"/>
+            
 
           <form className="name-form" onSubmit={this.props.signInNext}>
             <div className="name-form-div">
@@ -22,7 +22,7 @@ export default class Main1Sign extends Component {
               <input type="text" ref="nameField" name="nameField" className="form-control form-control-lg" 
               id="nameField" placeholder="Name" onChange={this.props.updateName} />
 
-              <button className="next-button">Next</button>
+              <button className="next-button signin-button">Next</button>
 
             </div>
             
@@ -33,3 +33,4 @@ export default class Main1Sign extends Component {
     }
   }
 
+  //<img src="seaside.jpg" alt="family hero" className="heroImage"/>
