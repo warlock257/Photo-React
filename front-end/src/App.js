@@ -239,6 +239,7 @@ render() {
       console.log('page 2')
       sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}
                           uploadedImgs={this.state.uploadedImgs}
+                          signInClick={this.signInClick}
                           catClick={this.catClick}/>
       mainPage = <Main2Upload uploadedImgs={this.state.uploadedImgs}
                               updateUploadedImgs={this.updateUploadedImgs}
@@ -257,6 +258,7 @@ render() {
                           updateCatCount={this.updateCatCount}
                           uploadedImgs={this.state.uploadedImgs}
                           updateCategoryArrays={this.updateCategoryArrays}
+                          uploadClick={this.uploadClick}
                           orderClick={this.orderClick} />
       mainPage = <Main3Cat dummydata={this.state.dummydata}
                            uploadedImgs={this.state.uploadedImgs}
@@ -265,7 +267,9 @@ render() {
   }
     else if (this.state.page === 4){
       console.log('page 4')
-      sidebar = <Sidebar4 orderFilter={this.orderFilter}  />
+      sidebar = <Sidebar4 orderFilter={this.orderFilter}
+                          catClick={this.catClick}
+                          completeClick={this.completeClick} />
       mainPage = <Main4Order uploadedImgs={this.state.uploadedImgs}
                               loadedArray={this.state.loadedArray}
                               chronoArray={this.state.chronoArray}

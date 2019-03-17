@@ -12,6 +12,17 @@ radioChange = (ev) =>{
     this.props.orderFilter(ev.target.value);
 }
 
+completeClick = () =>{
+    //move sorted into folders
+
+    //rename files
+
+    //zip sorted files and folders
+
+    //change to pg 5
+    this.props.completeClick()
+}
+
 render(){
     return(
         <div className="sidebar">
@@ -45,6 +56,9 @@ render(){
                     </label>
                 </form>
             </div>
+
+            <button className="back-button" onClick={this.props.catClick}>Back</button>
+            <button className="next-button" onClick={this.completeClick}>Next</button>
 
         </div>
     )}

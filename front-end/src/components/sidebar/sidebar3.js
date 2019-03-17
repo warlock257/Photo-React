@@ -118,7 +118,7 @@ export default class Sidebar3 extends Component {
                 <p className="checkContainer__heading">Unsorted</p>        
             </div>
         <br />
-        <button className="back-button">Back</button>
+        <button className="back-button" onClick={this.props.uploadClick}>Back</button>
         <button className="next-button" onClick={this.on3Next}>Next</button>
 
         </div>

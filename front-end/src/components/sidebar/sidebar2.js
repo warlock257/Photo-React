@@ -23,7 +23,7 @@ render(){
         <p>Number of pictures received:</p>
         <h2>{this.props.uploadedImgs.length}</h2>
 
-        <button className="back-button">Back</button>
+        <button className="back-button" onClick={this.props.signInClick}>Back</button>
         <button className="next-button" onClick={this.props.catClick}>Next</button>
 
         </div>

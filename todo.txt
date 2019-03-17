@@ -1,23 +1,28 @@
 
+overall
+
 
 pg 2
 multi-pic upload
-text instructions page 2
 
 pg3
-text instructions
 
 pg4
-ordering component
+sidebar instructions
+
+pg 4 - 5 NEXT
+move into folders
+rename files
+zip files
 
 pg 5
-zip files
-download
+map sorted files visually
+download button
 send to company
 
 
 
-multimedia
-	animation instructions
-
+Stretch goals
+use React Router
+animation instructions
 database
