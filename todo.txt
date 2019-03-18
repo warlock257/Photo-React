@@ -7,7 +7,7 @@ multi-pic upload
 pg3
 
 pg4
-sidebar instructions
+
 
 pg 4 - 5 NEXT
 move into folders
@@ -26,3 +26,13 @@ use React Router
 animation instructions
 database
 delete files
+
+
+
+object example
+
+category: "unsorted",
+imgLocalUrl: "http://localhost:8080/uploads/dave/myImage-1552929776899.jpg",
+newFilename: "",
+number: 0,
+originalFilename: ""

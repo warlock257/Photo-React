@@ -133,6 +133,48 @@ app.get('/getPics', (req,res) =>{
 })
 
 
+// ----------------- Final Processing  -----------------------
+
+//get array from front end - 1 request per category
+app.post('/process',(req,res) =>{
+  console.log(req.body)
+  let currentArray = req.body
+
+  //working userName DELETE
+  userName="dave"
+
+  //make folder - username/category
+  userPath = `./public/uploads/${userName}`
+  let catFolder = currentArray[0].category
+  let catPath = `${userPath}/${catFolder}`
+  if (!fs.existsSync(catPath)){
+    fs.mkdirSync(catPath);
+  }
+
+  //move files in each category into sub folders
+    //rename files in each folder
+    //name structure - username - category -number(by array loop, not object entry)
+    // fs.rename('oldFile.txt', 'newFile.txt', (err) => {
+    //   if (err) throw err;
+    //   console.log('Rename complete!');
+    // });
+
+
+
+
+  //zip entire file structure
+
+
+  res.json(req.body)
+})
+
+
+
+
+
+
+
+
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)
 })
