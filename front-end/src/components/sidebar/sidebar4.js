@@ -26,8 +26,10 @@ completeClick = () =>{
 render(){
     return(
         <div className="sidebar">
-
-        <h3>Order Page </h3>
+        <div className="orderInstructions">
+            <h3>Order Page </h3>
+            <p>Select a category to order, then drag images up and down to change their order.</p>
+        </div>
             <div className="catSelector">
                 <form onChange={this.radioChange}>
                     

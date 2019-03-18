@@ -15,7 +15,6 @@ render(){
 
         <h3>Upload Page </h3>
 
-        <h4>Instructions</h4>
         <div className="sidebar2Text">
             <p>Drag Images in to the box, or click it to choose a file</p>
         </div>
