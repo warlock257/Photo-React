@@ -59,7 +59,7 @@ export default class Topbar extends Component {
                 <div className="progress-line"></div>
                 <div className={circle2} id="upload" onClick={this.props.uploadClick}><span className="circle-text-upload">Upload</span></div>
                 <div className="progress-line"></div>
-                <div className={circle3} id="catagorize" onClick={this.props.catClick}><span className="circle-text-cat">Catagorize</span></div>
+                <div className={circle3} id="categorize" onClick={this.props.catClick}><span className="circle-text-cat">Catagorize</span></div>
                 <div className="progress-line"></div>
                 <div className={circle4} id="order" onClick={this.props.orderClick}><span className="circle-text-order">Order</span></div>
                 <div className="progress-line"></div>

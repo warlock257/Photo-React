@@ -30,29 +30,29 @@ render(){
             <h3>Order Page </h3>
             <p>Select a category to order, then drag images up and down to change their order.</p>
         </div>
-            <div className="catSelector">
+            <div className="catSelector md-radio" >
                 <form onChange={this.radioChange}>
                     
                     <label className="radioLabel"> Chronological
                     <input type="radio" name="catSelect" value="chrono" defaultChecked />
                     </label>
-                    <br />
+                    <hr />
                     <label className="radioLabel"> Family
                     <input type="radio" name="catSelect" value="family" />
                     </label>
-                    <br />
+                    <hr />
                     <label className="radioLabel"> Extended Family
                     <input type="radio" name="catSelect" value="extended" />
                     </label>
-                    <br />
+                    <hr />
                     <label className="radioLabel"> Friends
                     <input type="radio" name="catSelect" value="friends" />
                     </label>
-                    <br />
+                    <hr />
                     <label className="radioLabel"> Fun
                     <input type="radio" name="catSelect" value="fun" />
                     </label>
-                    <br />
+                    <hr />
                     <label className="radioLabel"> Unsorted
                     <input type="radio" name="catSelect" value="unsorted" />
                     </label>

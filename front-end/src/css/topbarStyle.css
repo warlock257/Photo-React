@@ -1,6 +1,6 @@
 .topbar{
     background-color: #595959;
-    height: 175px;
+    height: 125px;
     -webkit-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
     -moz-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
     box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
@@ -10,21 +10,21 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    padding-top: 35px;
+    padding-top: 22px;
 }
 
 .green-circle{
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   cursor: pointer;
-  background-color: rgb(80, 184, 0);
+  color:white;
+  background-color: #4285f4;
   border-radius: 50%;
     border: solid black 1px;
     display: inline-block;
     vertical-align: middle;
-    -webkit-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
-    -moz-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
-    box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.8);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
 }
 
 .progress-line{
@@ -39,43 +39,46 @@
 }
 
 .white-circle{
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     cursor: pointer;
     background-color: whitesmoke;
     border-radius: 50%;
     border: solid black 1px;
     display: inline-block;
     vertical-align: middle; 
-    -webkit-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
-    -moz-box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.4);
-    box-shadow: 3px 3px 16px -2px rgba(0,0,0,0.8);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .circle-text-signIn{
+    font-size:.9rem;
     position: relative;
-    top: 35px;
-    left: 24px;
+    top: 28px;
+    left: 17px;
 }
 .circle-text-upload{
+    font-size:.9rem;
     position: relative;
-    top: 35px;
-    left: 22px;
+    top: 28px;
+    left: 15px;
 }
 .circle-text-cat{
+    font-size:.9rem;
     position: relative;
-    top: 35px;
-    left: 9px;
+    top: 28px;
+    left: 4px;
 }
 .circle-text-order{
+    font-size:.9rem;
     position: relative;
-    top: 35px;
-    left: 29px;
+    top: 28px;
+    left: 21px;
 }
 .circle-text-complete{
+    font-size:.9rem;
     position: relative;
-    top: 35px;
-    left: 15px;
+    top: 28px;
+    left: 7px;
 }
 
 .welcomeName{

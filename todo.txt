@@ -1,6 +1,5 @@
 
 overall
-delete files
 
 pg 2
 multi-pic upload
@@ -26,3 +25,4 @@ Stretch goals
 use React Router
 animation instructions
 database
+delete files
