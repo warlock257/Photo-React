@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //import {render} from 'react-dom';
 import {sortableContainer, sortableElement} from 'react-sortable-hoc';
-import arrayMove from 'array-move';
+//import arrayMove from 'array-move';
 
 const SortableItem = sortableElement(({value}) => 
 // <li>{value}</li>
@@ -22,14 +22,6 @@ class Main4Order extends Component {
     //items: []
   };
 
-
-
-  //MOVED TO APP
-  // onSortEnd = ({oldIndex, newIndex}) => {
-  //   this.setState(({items}) => ({
-  //     items: arrayMove(items, oldIndex, newIndex),
-  //   }));
-  // };
 
   render() {
     let items = []

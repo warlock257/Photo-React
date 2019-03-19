@@ -139,6 +139,7 @@ app.get('/getPics', (req,res) =>{
 app.post('/process',(req,res) =>{
   console.log(req.body)
   let currentArray = req.body
+  console.log(currentArray);
 
   //working userName DELETE
   userName="dave"
@@ -150,24 +151,17 @@ app.post('/process',(req,res) =>{
   if (!fs.existsSync(catPath)){
     fs.mkdirSync(catPath);
   }
-
-  //move files in each category into sub folders
-    //rename files in each folder
+  //move files in each category into sub folders, rename files in each folder
     //name structure - username - category -number(by array loop, not object entry)
-    // fs.rename('oldFile.txt', 'newFile.txt', (err) => {
-    //   if (err) throw err;
-    //   console.log('Rename complete!');
-    // });
-
-
-
-
-  //zip entire file structure
-
-
+    for (let i = 0; i < currentArray.length;i++){
+      fs.rename(`${userPath}/${currentArray[i].originalFilename}`, `${catPath}/${userName}-${currentArray[i].category}-${i}.jpg`, (err) => {
+        if (err) throw err;
+      });
+    }
   res.json(req.body)
 })
 
+//zip entire file structure (separate request)
 
 
 
@@ -177,4 +171,4 @@ app.post('/process',(req,res) =>{
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)
-})
+});

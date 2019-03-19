@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
-import {sortableContainer, sortableElement} from 'react-sortable-hoc';
+//import {sortableContainer, sortableElement} from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 //import './css/bootstrap.min.css';
 //import './js/jquery-3.3.1.slim.min.js';
@@ -269,7 +269,14 @@ render() {
       console.log('page 4')
       sidebar = <Sidebar4 orderFilter={this.orderFilter}
                           catClick={this.catClick}
-                          completeClick={this.completeClick} />
+                          completeClick={this.completeClick}
+                          chronoArray={this.state.chronoArray} 
+                          familyArray={this.state.familyArray} 
+                          extArray={this.state.extArray} 
+                          friendsArray={this.state.friendsArray} 
+                          funArray={this.state.funArray} 
+                          unsortedArray={this.state.unsortedArray} 
+                          />
       mainPage = <Main4Order uploadedImgs={this.state.uploadedImgs}
                               loadedArray={this.state.loadedArray}
                               chronoArray={this.state.chronoArray}
