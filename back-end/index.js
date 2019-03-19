@@ -60,6 +60,18 @@ const upload = multer({
 }).single('myImage');
 //put in a name variable instead of my image
 
+//multi upload variable
+const uploads = multer({
+  storage:storage,
+  limits:{
+      fileSize:100000000,
+      fileFilter:function(req,res,cb){
+          checkFileType(file,cb)
+      }
+  }
+}).array('myImage');
+//put in a name variable instead of my image
+
 
 //check file type function
 function checkFileType(file, cb){
@@ -96,7 +108,37 @@ app.post('/upload',(req,res) =>{
   })
 })
 
+//multi upload endpoint
+app.post('/uploads',(req,res) =>{
+  console.log("username: " + userName + " Path: " + userPath);
+  uploads(req,res,(err) => {
+      if(err){
+        console.log(err)
+        res.send(err)
+      } else {
+          console.log(req.files)
+          if(req.files == undefined){
+            console.log("no file selected")
+            res.send("no file selected")
+          } else {
+            console.log(req.files)
+            for (let i = 0; i < req.files.length ;i++){
+              mv(`./public/uploads/tmp/${req.files[i].filename}`, `${userPath}/${req.files[i].filename}`, (err) =>{console.log(err)})
+            }
+            res.json(req.files)
+          }
+      }
+  })
+})
 
+
+
+// ------PAGE 2 DELETE ------
+
+app.delete('/deletePic', (req, res)=>{
+  console.log(req.body.file)
+  res.send("pic deleted " + req.body.file)
+})
 
 
 

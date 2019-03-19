@@ -64,6 +64,28 @@ componentDidUpdate(){
   })
 }
 
+deletepic =(ev) =>{
+  let axConfig = {
+    method:"delete",
+    url:"http://localhost:8080/deletePic",
+    data:{
+      file:ev.target.id
+    },
+    headers:{
+      'content-type':'application/json'
+    }
+  }
+  //console.log(deleteObj)
+  axios(axConfig)
+  .then((res)=>{
+    console.log(res)
+    //REFRESH PAGE
+  })
+  .catch((err) =>{
+    console.log(err)
+  })
+}
+
 
 
     render () {
@@ -71,7 +93,8 @@ componentDidUpdate(){
       let images = this.props.uploadedImgs.map(image => {
         return (
             <div id={image.number} className="draggableImg"> 
-                <img key={image.number} src={image.imgLocalUrl} alt="" className="img-responsive" />
+                <img key={image.number} src={image.imgLocalUrl} alt="" className="img-responsive draggableImgImg" />
+                <img className="trash" src="trash-2.svg" alt="trash icon" id={image.originalFilename} onClick={this.deletepic}/>
             </div>
             )
      });

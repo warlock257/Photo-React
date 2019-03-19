@@ -18,14 +18,14 @@ completeClick = () =>{
     //send request to move sorted into folders
     if(this.props.chronoArray.length !== 0){
     const axConfig = {
-        "method":"POST",
-        "url":"http://localhost:8080/process/",
-        "data": this.props.chronoArray,
+        method:"POST",
+        url:"http://localhost:8080/process/",
+        data: this.props.chronoArray,
         headers:{
-            'content-type':'application/json'
+            'Content-Type':'application/json'
         }
       }
-      axios.post(axConfig)
+      axios(axConfig)
       .then((res)=>{
         console.log(res.data)
       })
