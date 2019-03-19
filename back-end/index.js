@@ -148,13 +148,17 @@ app.post('/process',(req,res) =>{
   userPath = `./public/uploads/${userName}`
   let catFolder = currentArray[0].category
   let catPath = `${userPath}/${catFolder}`
+  let originalFileName = "";
+  let ImgExtension = ".jpg"
   if (!fs.existsSync(catPath)){
     fs.mkdirSync(catPath);
   }
   //move files in each category into sub folders, rename files in each folder
     //name structure - username - category -number(by array loop, not object entry)
     for (let i = 0; i < currentArray.length;i++){
-      fs.rename(`${userPath}/${currentArray[i].originalFilename}`, `${catPath}/${userName}-${currentArray[i].category}-${i}.jpg`, (err) => {
+      originalFileName = currentArray[i].originalFilename
+      ImgExtension = originalFileName.substr(21,5)
+      fs.rename(`${userPath}/${currentArray[i].originalFilename}`, `${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`, (err) => {
         if (err) throw err;
       });
     }
