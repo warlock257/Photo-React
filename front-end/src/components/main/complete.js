@@ -9,9 +9,13 @@ export default class Main5Complete extends Component {
 
     render () {
       return (
-        <div className='signIn'>
-            <h3>Complete</h3>
-            <button onClick={this.startOver}>Start Over</button>
+        <div className='completePage'>
+            <div className="completeButton">
+              <button onClick={this.startOver}>Start Over</button>
+              <button>Download Sorted Files</button>
+              <button>Submit to Company</button>
+            </div>
+
         </div>
 
       )

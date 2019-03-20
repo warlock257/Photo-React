@@ -1,16 +1,7 @@
 
-overall
-
-pg 2
-multi-pic upload
-
-pg3
-
-pg4
-
 pg 5
-zip files
 map sorted files visually
+zip files
 download button
 send to company
 

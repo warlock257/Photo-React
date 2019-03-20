@@ -15,6 +15,7 @@ import './css/signInStyles.scss';
 import './css/upload-styles.scss';
 import './css/cat-mainStyle.scss';
 import './css/order-styles.scss';
+import './css/complete-styles.scss'
 import './fonts/stylesheet.css';
 
 import Topbar from './components/topbar/topbar.js';
@@ -290,10 +291,15 @@ render() {
   }
     else if (this.state.page === 5){
       console.log('page 5')
-      sidebar = <Sidebar5 />
+      sidebar = <Sidebar5 
+                          chronoArray={this.state.chronoArray} 
+                          familyArray={this.state.familyArray} 
+                          extArray={this.state.extArray} 
+                          friendsArray={this.state.friendsArray} 
+                          funArray={this.state.funArray} 
+                          unsortedArray={this.state.unsortedArray}  />
       mainPage = <Main5Complete />
   }
-
 
 
     return (
