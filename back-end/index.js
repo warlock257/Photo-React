@@ -155,7 +155,8 @@ app.get('/getPics', (req,res) =>{
       originalFilename:'',
       newFilename:'',
       category:'unsorted',
-      imgLocalUrl:''
+      imgLocalUrl:'',
+      userName:userName
     }
 
     fs.readdir(userPath, (err, files) => {
@@ -182,9 +183,6 @@ app.post('/process',(req,res) =>{
   console.log(req.body)
   let currentArray = req.body
   console.log(currentArray);
-
-  //working userName DELETE
-  userName="dave"
 
   //make folder - username/category
   userPath = `./public/uploads/${userName}`

@@ -54,7 +54,7 @@ class Main4Order extends Component {
     }) 
     
     return (
-      <div className="UploadPage">
+      <div className="OrderPage">
 
       <SortableContainer onSortEnd={this.props.onSortEnd}>
         {items.map((value, index) => (
