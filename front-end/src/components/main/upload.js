@@ -36,8 +36,8 @@ postImg = (ev) =>{
 }
 
 componentDidMount(){
-  console.log("upload did mount")
-  console.log(this.props.uploadedImgs)
+  //console.log("upload did mount")
+  //console.log(this.props.uploadedImgs)
   axios.get('http://localhost:8080/getPics')
   .then((res) =>{
     //console.log(res.data)
