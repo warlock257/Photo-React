@@ -64,7 +64,7 @@ componentDidUpdate(){
   })
 }
 
-deletepic =(ev) =>{
+deletePic =(ev) =>{
   let axConfig = {
     method:"delete",
     url:"http://localhost:8080/deletePic",
@@ -80,6 +80,7 @@ deletepic =(ev) =>{
   .then((res)=>{
     console.log(res)
     //REFRESH PAGE
+    this.forceUpdate()
   })
   .catch((err) =>{
     console.log(err)
@@ -94,7 +95,7 @@ deletepic =(ev) =>{
         return (
             <div id={image.number} className="draggableImg"> 
                 <img key={image.number} src={image.imgLocalUrl} alt="" className="img-responsive draggableImgImg" />
-                <img className="trash" src="trash-2.svg" alt="trash icon" id={image.originalFilename} onClick={this.deletepic}/>
+                <img className="trash" src="trash-2.svg" alt="trash icon" id={image.originalFilename} onClick={this.deletePic}/>
             </div>
             )
      });

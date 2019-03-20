@@ -8,13 +8,8 @@ pg3
 
 pg4
 
-
-pg 4 - 5 NEXT
-move into folders
-rename files
-zip files
-
 pg 5
+zip files
 map sorted files visually
 download button
 send to company
@@ -25,7 +20,6 @@ Stretch goals
 use React Router
 animation instructions
 database
-delete files
 
 
 

@@ -95,14 +95,14 @@ app.post('/upload',(req,res) =>{
         console.log(err)
         res.send(err)
       } else {
-          console.log(req.file)
+          //console.log(req.file)
           if(req.file == undefined){
             console.log("no file selected")
             res.send("no file selected")
           } else {
             console.log("file uploaded as: " + req.file.filename)
-            res.send("file uploaded as: " + req.file.filename)
             mv(`./public/uploads/tmp/${req.file.filename}`, `${userPath}/${req.file.filename}`, (err) =>{console.log(err)})
+            res.send("file uploaded as: " + req.file.filename)
           }
       }
   })
@@ -136,8 +136,12 @@ app.post('/uploads',(req,res) =>{
 // ------PAGE 2 DELETE ------
 
 app.delete('/deletePic', (req, res)=>{
-  console.log(req.body.file)
-  res.send("pic deleted " + req.body.file)
+  let fileToDelete = req.body.file
+  fs.unlink(`./public/uploads/${userName}/${fileToDelete}`, (err) =>{
+    console.log("error deleting file: " + err)
+  })
+
+  res.send("pic deleted: " + req.body.file)
 })
 
 
