@@ -209,9 +209,26 @@ app.post('/process',(req,res) =>{
   res.json(req.body)
 })
 
-//zip entire file structure (separate request)
 
 
+// -------  PAGE 5 -----zip entire file structure
+var JSZip = require("jszip");
+let testpath = "./public/uploads/testUser"
+
+app.get('/zip', (req, res) =>{
+    let zip = new JSZip();
+    let zipppedFolder = zip.folder(testpath);
+    zipppedFolder
+    .generateNodeStream({type:'nodebuffer',streamFiles:true})
+    .pipe(fs.createWriteStream('out.zip'))
+    .on('finish', function () {
+        // JSZip generates a readable stream with a "end" event,
+        // but is piped here in a writable stream which emits a "finish" event.
+        console.log("out.zip written.");
+    });
+
+  res.send("Zip Url")
+})
 
 
 
