@@ -212,18 +212,34 @@ app.post('/process',(req,res) =>{
 
 
 // -------  PAGE 5 -----zip entire file structure
+userName = "testUser"
 var JSZip = require("jszip");
-let testpath = "./public/uploads/testUser"
+let zipPath = `./public/uploads/${userName}`
 
 app.get('/zip', (req, res) =>{
     let zip = new JSZip();
 
     let chronoFolder = zip.folder(`chrono`)
+    let chronofiles = fs.readdir(`${zipPath}/chrono`,(err,files) =>{
+      if (err) {
+        return console.log('Unable to scan directory: ' + err);
+      } 
+        files.forEach(function (file) {
+          console.log(file); 
+          chronoFolder.file(file, fs.readFileSync(`${zipPath}/chrono/${file}`));
+      });
+    });
+
+    console.log(chronofiles);
     let familyFolder = zip.folder(`family`)
+    let extFolder = zip.folder(`extended`)
+    let friendsFolder = zip.folder(`friends`)
     let funFolder = zip.folder(`fun`)
-    chronoFolder.file("chrono (2).jpg", fs.readFileSync(`${testpath}/chrono/chrono (2).jpg`));
-    familyFolder.file("fam (1).jpg", fs.readFileSync(`${testpath}/family/fam (1).jpg`));
-    funFolder.file("2016-08-12 22.39.58.jpg", fs.readFileSync(`${testpath}/fun/2016-08-12 22.39.58.jpg`));
+    let unsortedFolder = zip.folder(`unsorted`)
+
+    
+    familyFolder.file("fam (1).jpg", fs.readFileSync(`${zipPath}/family/fam (1).jpg`));
+    funFolder.file("2016-08-12 22.39.58.jpg", fs.readFileSync(`${zipPath}/fun/2016-08-12 22.39.58.jpg`));
 
 
 
@@ -233,10 +249,10 @@ app.get('/zip', (req, res) =>{
     .on('finish', function () {
         // JSZip generates a readable stream with a "end" event,
         // but is piped here in a writable stream which emits a "finish" event.
-        console.log("out.zip written.");
+        console.log("photos.zip written.");
     });
 
-  res.send("Zip Url")
+  res.send(chronofiles)
 })
 
 
