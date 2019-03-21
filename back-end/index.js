@@ -217,10 +217,19 @@ let testpath = "./public/uploads/testUser"
 
 app.get('/zip', (req, res) =>{
     let zip = new JSZip();
-    let zipppedFolder = zip.folder(testpath);
-    zipppedFolder
+
+    let chronoFolder = zip.folder(`chrono`)
+    let familyFolder = zip.folder(`family`)
+    let funFolder = zip.folder(`fun`)
+    chronoFolder.file("chrono (2).jpg", fs.readFileSync(`${testpath}/chrono/chrono (2).jpg`));
+    familyFolder.file("fam (1).jpg", fs.readFileSync(`${testpath}/family/fam (1).jpg`));
+    funFolder.file("2016-08-12 22.39.58.jpg", fs.readFileSync(`${testpath}/fun/2016-08-12 22.39.58.jpg`));
+
+
+
+    zip
     .generateNodeStream({type:'nodebuffer',streamFiles:true})
-    .pipe(fs.createWriteStream('out.zip'))
+    .pipe(fs.createWriteStream('public/uploads/testUser/photos.zip'))
     .on('finish', function () {
         // JSZip generates a readable stream with a "end" event,
         // but is piped here in a writable stream which emits a "finish" event.

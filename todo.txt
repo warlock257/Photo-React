@@ -1,6 +1,4 @@
 
-pg 5
-map sorted files visually
 zip files
 download button
 send to company
@@ -10,7 +8,7 @@ send to company
 Stretch goals
 use React Router
 animation instructions
-database
+
 
 
 
