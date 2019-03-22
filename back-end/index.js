@@ -9,6 +9,7 @@ app.use(cors({
 }))
 const fs = require('fs');
 var mv = require('mv');
+var JSZip = require("jszip");
 const PORT = 8080;
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -88,40 +89,40 @@ function checkFileType(file, cb){
 
 //file.originalfilename is the original file name
 //file.filename is new file name
-app.post('/upload',(req,res) =>{
-  console.log("username: " + userName + " Path: " + userPath);
-  upload(req,res,(err) => {
-      if(err){
-        console.log(err)
-        res.send(err)
-      } else {
-          //console.log(req.file)
-          if(req.file == undefined){
-            console.log("no file selected")
-            res.send("no file selected")
-          } else {
-            console.log("file uploaded as: " + req.file.filename)
-            mv(`./public/uploads/tmp/${req.file.filename}`, `${userPath}/${req.file.filename}`, (err) =>{console.log(err)})
-            res.send("file uploaded as: " + req.file.filename)
-          }
-      }
-  })
-})
+// app.post('/upload',(req,res) =>{
+//   console.log("username: " + userName + " Path: " + userPath);
+//   upload(req,res,(err) => {
+//       if(err){
+//         console.log(err)
+//         res.send(err)
+//       } else {
+//           //console.log(req.file)
+//           if(req.file == undefined){
+//             console.log("no file selected")
+//             res.send("no file selected")
+//           } else {
+//             //console.log("file uploaded as: " + req.file.filename)
+//             mv(`./public/uploads/tmp/${req.file.filename}`, `${userPath}/${req.file.filename}`, (err) =>{console.log(err)})
+//             res.send("file uploaded as: " + req.file.filename)
+//           }
+//       }
+//   })
+// })
 
 //multi upload endpoint
 app.post('/uploads',(req,res) =>{
-  console.log("username: " + userName + " Path: " + userPath);
+  //console.log("username: " + userName + " Path: " + userPath);
   uploads(req,res,(err) => {
       if(err){
         console.log(err)
         res.send(err)
       } else {
-          console.log(req.files)
+          //console.log(req.files)
           if(req.files == undefined){
             console.log("no file selected")
             res.send("no file selected")
           } else {
-            console.log(req.files)
+            //console.log(req.files)
             for (let i = 0; i < req.files.length ;i++){
               mv(`./public/uploads/tmp/${req.files[i].filename}`, `${userPath}/${req.files[i].filename}`, (err) =>{console.log(err)})
             }
@@ -184,9 +185,9 @@ app.get('/getPics', (req,res) =>{
 
 //get array from front end - 1 request per category
 app.post('/process',(req,res) =>{
-  console.log(req.body)
+  //console.log(req.body)
   let currentArray = req.body
-  console.log(currentArray);
+  //console.log(currentArray);
 
   //make folder - username/category
   userPath = `./public/uploads/${userName}`
@@ -212,12 +213,15 @@ app.post('/process',(req,res) =>{
 
 
 // -------  PAGE 5 -----zip entire file structure
-userName = "testUser"
-var JSZip = require("jszip");
-let zipPath = `./public/uploads/${userName}`
 
-app.get('/zip', (req, res) =>{
-    let zip = new JSZip();
+app.post('/zip', (req, res) =>{
+  console.log(req.body)
+  userName = req.body.userName
+  let zipPath = `./public/uploads/${userName}`
+  console.log("ZIP user name set to " + userName)
+  console.log("zip path set to: "+ zipPath)
+  
+  let zip = new JSZip();
 
     if (fs.existsSync(`${zipPath}/chrono`)){
       let chronoFolder = zip.folder(`chrono`)
@@ -269,7 +273,7 @@ app.get('/zip', (req, res) =>{
         console.log("photos.zip written.");
     });
 
-  res.send(`localhost:8080/uploads/${userName}/${userName}-photos.zip`)
+  res.send(`http://localhost:8080/uploads/${userName}/${userName}-photos.zip`)
 })
 
 

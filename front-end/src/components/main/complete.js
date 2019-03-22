@@ -12,7 +12,7 @@ export default class Main5Complete extends Component {
         <div className='completePage'>
             <div className="completeButton">
               <button onClick={this.startOver}>Start Over</button>
-              <button>Download Sorted Files</button>
+              <button><a href={this.props.zipUrl}>Download Sorted Files</a></button>
               <button>Submit to Company</button>
             </div>
 
@@ -21,6 +21,4 @@ export default class Main5Complete extends Component {
       )
     }
   }
-
-
 

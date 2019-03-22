@@ -120,7 +120,28 @@ completeClick = () =>{
     }
 
 
-    //zip sorted files and folders
+    //zip sorted files and folders, get returned url
+    let zipUserName = this.props.name;
+    console.log(zipUserName);
+    let zipConfig = {
+      method:"POST",
+      url:"http://localhost:8080/zip",
+      data: {
+        userName:zipUserName
+      },
+      headers:{
+          'Content-Type':'application/json'
+      }
+    }
+    axios(zipConfig)
+    .then((res)=>{
+      console.log("returned URL: " + res.data)
+      this.props.getZipUrl(res.data)
+    })
+    .catch((err) =>{
+      console.log(err)
+    })
+
 
     //change to pg 5
     this.props.completeClick()

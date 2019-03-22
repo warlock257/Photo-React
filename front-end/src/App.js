@@ -53,7 +53,8 @@ class App extends Component {
       friendsArray: [],
       funArray: [],
       unsortedArray: [],
-      loadedArray:"chrono"
+      loadedArray:"chrono",
+      zipUrl:""
     }
   }
   
@@ -222,6 +223,12 @@ onSortEnd = ({oldIndex, newIndex}) => {
   }
 };
 
+getZipUrl = (url) =>{
+  this.setState({
+    zipUrl:url
+  })
+}
+
 
 
 
@@ -276,8 +283,10 @@ render() {
                           extArray={this.state.extArray} 
                           friendsArray={this.state.friendsArray} 
                           funArray={this.state.funArray} 
-                          unsortedArray={this.state.unsortedArray} 
-                          />
+                          unsortedArray={this.state.unsortedArray}
+                          getZipUrl={this.getZipUrl}
+                          name={this.state.name} />
+
       mainPage = <Main4Order uploadedImgs={this.state.uploadedImgs}
                               loadedArray={this.state.loadedArray}
                               chronoArray={this.state.chronoArray}
@@ -298,7 +307,7 @@ render() {
                           friendsArray={this.state.friendsArray} 
                           funArray={this.state.funArray} 
                           unsortedArray={this.state.unsortedArray}  />
-      mainPage = <Main5Complete />
+      mainPage = <Main5Complete zipUrl={this.state.zipUrl} />
   }
 
 
