@@ -81,7 +81,7 @@ class App extends Component {
 
   signInNext= (ev) => {
     ev.preventDefault();
-    //var formData = document.getElementById('nameField').value;
+    console.log("Sign in Next fired")
     if(this.state.name === 'none'){
       alert("Enter a name before proceeding");
     } else {

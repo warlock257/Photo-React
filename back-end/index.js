@@ -221,6 +221,7 @@ app.post('/zip', (req, res) =>{
   console.log("ZIP user name set to " + userName)
   console.log("zip path set to: "+ zipPath)
   
+
   let zip = new JSZip();
 
     if (fs.existsSync(`${zipPath}/chrono`)){
@@ -271,9 +272,32 @@ app.post('/zip', (req, res) =>{
     .pipe(fs.createWriteStream(`public/uploads/${userName}/${userName}-photos.zip`))
     .on('finish', function () {
         console.log("photos.zip written.");
-    });
 
-  res.send(`http://localhost:8080/uploads/${userName}/${userName}-photos.zip`)
+        res.send(`http://localhost:8080/uploads/${userName}/${userName}-photos.zip`);
+    });
+})
+
+const zlib = require('zlib');
+app.post('/zip2', (req, res) =>{
+
+const directoryFiles = fs.readdirSync('./back-end/public/uploads/dave/chrono');
+
+Promise.all(directoryFiles.map(filename => {
+  return new Promise((resolve, reject) => {
+    const fileContents = fs.createReadStream(`./back-end/public/uploads/dave/chrono/${filename}`);
+    const writeStream = fs.createWriteStream(`./back-end/public/uploads/dave/${filename}.gz`);
+    const zip = zlib.createGzip();
+    fileContents.pipe(zip).pipe(writeStream).on('finish', (err) => {
+      if (err) return reject(err);
+      else resolve();
+    })
+  })
+}))
+  .then(console.log('done'));
+
+
+
+  res.send("return")
 })
 
 
