@@ -219,40 +219,57 @@ let zipPath = `./public/uploads/${userName}`
 app.get('/zip', (req, res) =>{
     let zip = new JSZip();
 
-    let chronoFolder = zip.folder(`chrono`)
-    let chronofiles = fs.readdir(`${zipPath}/chrono`,(err,files) =>{
-      if (err) {
-        return console.log('Unable to scan directory: ' + err);
-      } 
-        files.forEach(function (file) {
-          console.log(file); 
-          chronoFolder.file(file, fs.readFileSync(`${zipPath}/chrono/${file}`));
-      });
-    });
-
-    console.log(chronofiles);
-    let familyFolder = zip.folder(`family`)
-    let extFolder = zip.folder(`extended`)
-    let friendsFolder = zip.folder(`friends`)
-    let funFolder = zip.folder(`fun`)
-    let unsortedFolder = zip.folder(`unsorted`)
-
-    
-    familyFolder.file("fam (1).jpg", fs.readFileSync(`${zipPath}/family/fam (1).jpg`));
-    funFolder.file("2016-08-12 22.39.58.jpg", fs.readFileSync(`${zipPath}/fun/2016-08-12 22.39.58.jpg`));
-
-
+    if (fs.existsSync(`${zipPath}/chrono`)){
+      let chronoFolder = zip.folder(`chrono`)
+      let chronofiles = fs.readdirSync(`./public/uploads/${userName}/chrono/`)
+      chronofiles.forEach(function(file){
+        chronoFolder.file(file, fs.readFileSync(`./${zipPath}/chrono/${file}`)); 
+      })
+    }
+    if (fs.existsSync(`${zipPath}/family`)){
+      let familyFolder = zip.folder(`family`)
+      let familyfiles = fs.readdirSync(`./public/uploads/${userName}/family/`)
+      familyfiles.forEach(function(file){
+        familyFolder.file(file, fs.readFileSync(`./${zipPath}/family/${file}`)); 
+      })
+    }
+    if (fs.existsSync(`${zipPath}/extended`)){
+      let extFolder = zip.folder(`extended`)
+      let extfiles = fs.readdirSync(`./public/uploads/${userName}/extended/`)
+      extfiles.forEach(function(file){
+        extFolder.file(file, fs.readFileSync(`./${zipPath}/extended/${file}`)); 
+      })
+    }
+    if (fs.existsSync(`${zipPath}/friends`)){
+      let friendsFolder = zip.folder(`friends`)
+      let friendsfiles = fs.readdirSync(`./public/uploads/${userName}/friends/`)
+      friendsfiles.forEach(function(file){
+        friendsFolder.file(file, fs.readFileSync(`./${zipPath}/friends/${file}`)); 
+      })
+    }
+    if (fs.existsSync(`${zipPath}/fun`)){
+      let funFolder = zip.folder(`fun`)
+      let funfiles = fs.readdirSync(`./public/uploads/${userName}/fun/`)
+      funfiles.forEach(function(file){
+        funFolder.file(file, fs.readFileSync(`./${zipPath}/fun/${file}`)); 
+      })
+    }
+    if (fs.existsSync(`${zipPath}/unsorted`)){
+      let unsortedFolder = zip.folder(`unsorted`)
+      let unsortedfiles = fs.readdirSync(`./public/uploads/${userName}/unsorted/`)
+      unsortedfiles.forEach(function(file){
+        unsortedFolder.file(file, fs.readFileSync(`./${zipPath}/unsorted/${file}`)); 
+      })
+    }
 
     zip
     .generateNodeStream({type:'nodebuffer',streamFiles:true})
-    .pipe(fs.createWriteStream('public/uploads/testUser/photos.zip'))
+    .pipe(fs.createWriteStream(`public/uploads/${userName}/${userName}-photos.zip`))
     .on('finish', function () {
-        // JSZip generates a readable stream with a "end" event,
-        // but is piped here in a writable stream which emits a "finish" event.
         console.log("photos.zip written.");
     });
 
-  res.send(chronofiles)
+  res.send(`localhost:8080/uploads/${userName}/${userName}-photos.zip`)
 })
 
 
