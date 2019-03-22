@@ -13,9 +13,11 @@ render(){
         <div className="sidebar">
 
         <h3>Nearly Done!</h3>
-        <p className="complete__Instructions">Click the buttons to redownload your 
+        <p className="complete__Instructions">Click the buttons to download your 
             sorted files, and send them to the 
             company.</p>
+            <br />
+        <p className="complete__Instructions">Total number of files in each category:</p>
 
     <div className="complete__count">
         <div className="checkContainer">

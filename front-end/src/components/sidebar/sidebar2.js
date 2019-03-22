@@ -13,10 +13,11 @@ render(){
     return(
         <div className="sidebar">
 
-        <h3>Upload Page </h3>
+        <h3 className="sidebar2Heading">Upload Page </h3>
 
         <div className="sidebar2Text">
-            <p>Drag Images in to the box, or click it to choose a file</p>
+            <p>Click "Choose a file", then click "Upload". This can be done multiple times.</p>
+            <p>Make sure you see all your photos before proceeding</p>
         </div>
 
         <p>Number of pictures received:</p>

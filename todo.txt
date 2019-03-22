@@ -1,13 +1,7 @@
 
-zip files
-download button
-send to company
-
-
-
 Stretch goals
 use React Router
-animation instructions
+
 
 
 

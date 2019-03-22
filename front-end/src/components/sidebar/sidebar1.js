@@ -14,8 +14,14 @@ render(){
 
         <h2 className="sidebar-heading">Instructions</h2>
         <div className="sidebar1Text">
-           <p>Enter your last name, and click next</p>
-           <p>If returning from a previous session, make sure the name entered, is the same</p>
+           <p>You will proceed through 5 stages:</p>
+           <ol>
+               <li>Sign in with your last name</li>
+               <li>Upload your photos</li>
+               <li>Sort your photos into categories</li>
+               <li>Order your photos within each category</li>
+               <li>Download your sorted photos in a zip file</li>
+           </ol>
         </div>
 
         </div>

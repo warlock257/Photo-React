@@ -19,8 +19,12 @@
 .sidebar1Text{
     margin:0 auto;
     max-width:85%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: left;
+}
+
+.sidebar2Heading{
+    margin-top:60px;
 }
 
 .checkContainer{
@@ -131,6 +135,11 @@ input[type=checkbox]
     height: 3rem;
     width:6rem;
     box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        box-shadow: 0 5px 15px rgba(79, 96, 192, 0.6)
+    } 
 }
 .back-button{
     margin-top:10px;
@@ -142,6 +151,11 @@ input[type=checkbox]
     height: 3rem;
     width:6rem;
     box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        box-shadow: 0 5px 15px rgba(79, 96, 192, 0.6)
+    } 
 }
 
 .catSelector{
@@ -170,7 +184,7 @@ input[type=radio] {
 .complete__Instructions{
     margin:0 auto;
     max-width:80%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: left;
 }
 

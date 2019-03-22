@@ -3,7 +3,7 @@ import axios from 'axios'
 import './App.css';
 import arrayMove from 'array-move';
 
-import './css/masterstyles.scss'
+import './css/masterstyles.scss';
 import './css/topbarStyle.scss';
 import './css/sidebarStyle.scss';
 import './css/signInStyles.scss';

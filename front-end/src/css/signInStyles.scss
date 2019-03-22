@@ -67,7 +67,11 @@
             height: 3rem;
             width:6rem;
             margin-left:0;
-            
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                box-shadow: 0 5px 15px rgba(79, 96, 192, 0.6)
+            } 
         }
     }
 
