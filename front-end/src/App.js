@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
-//import {sortableContainer, sortableElement} from 'react-sortable-hoc';
 import arrayMove from 'array-move';
-//import './css/bootstrap.min.css';
-//import './js/jquery-3.3.1.slim.min.js';
-//import './css/jquery-ui.css';
-//import './js/popper.min.js';
 
 import './css/masterstyles.scss'
-import './css/topbarStyle.css';
+import './css/topbarStyle.scss';
 import './css/sidebarStyle.scss';
 import './css/signInStyles.scss';
 import './css/upload-styles.scss';

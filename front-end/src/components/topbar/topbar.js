@@ -52,9 +52,8 @@ export default class Topbar extends Component {
 
         <div className="topbar">
         <div className="row progress-circles">
-            <div className="col-md-2"></div>
             
-            <div className="col-md-8">
+            <div className="circles">
                 <div className={circle1} id="signIn" onClick={this.props.signInClick}><span className="circle-text-signIn">Sign in</span></div>
                 <div className="progress-line"></div>
                 <div className={circle2} id="upload" onClick={this.props.uploadClick}><span className="circle-text-upload">Upload</span></div>
@@ -66,7 +65,7 @@ export default class Topbar extends Component {
                 <div className={circle5} id="complete" onClick={this.props.completeClick}><span className="circle-text-complete">Complete</span></div>
             </div>
             
-            <div className="col-md-2 topbarName">
+            <div className="topbarName">
               <h3>Welcome</h3>
               <h3>{this.props.name}</h3>
             </div>

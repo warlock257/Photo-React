@@ -87,4 +87,10 @@
 
 .topbarName{
     color:white;
+    @media (min-width:1024px){
+        margin-left:10vw;
+    }
+    @media (min-width:768px){
+        margin-left:6vw;
+    }
 }

@@ -103,8 +103,8 @@ deletePic =(ev) =>{
         <div className='upload'>
           {/* <h3 className="upload__title">Upload page</h3> */}
 
-          <DropzoneComp userName={this.props.name}
-                       uploading={this.props.uploading}/>
+          {/* <DropzoneComp userName={this.props.name}
+                       uploading={this.props.uploading}/> */}
           <UploadImage userName={this.props.name}
                        uploading={this.props.uploading} />
 
