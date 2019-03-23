@@ -198,15 +198,31 @@ app.post('/process',(req,res) =>{
   if (!fs.existsSync(catPath)){
     fs.mkdirSync(catPath);
   }
+  if (!fs.existsSync(`${userPath}/toZip`)){
+    fs.mkdirSync(`${userPath}/toZip`);
+  }
+
+
   //move files in each category into sub folders, rename files in each folder
     //name structure - username - category -number(by array loop, not object entry)
     for (let i = 0; i < currentArray.length;i++){
       originalFileName = currentArray[i].originalFilename
       ImgExtension = originalFileName.substr(21,5)
-      fs.rename(`${userPath}/${currentArray[i].originalFilename}`, `${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`, (err) => {
-        if (err) throw err;
-      });
+      fs.renameSync(`${userPath}/${currentArray[i].originalFilename}`, `${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`
+      // , (err) => {
+      //   if (err) throw err;}
+      );
+
+      //after rename, copy to the zip folder
+      fs.copyFileSync(`${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`, `${userPath}/toZip/${userName}-${currentArray[i].category}-${i}${ImgExtension}`
+      //  , (err) => {if (err) throw err;
+        //console.log('source.txt was copied to destination.txt');}
+      );
+
     }
+
+
+    
   res.json(req.body)
 })
 
@@ -277,27 +293,38 @@ app.post('/zip', (req, res) =>{
     });
 })
 
-const zlib = require('zlib');
+
+
+
+//zipping all from 1 folder
 app.post('/zip2', (req, res) =>{
 
-const directoryFiles = fs.readdirSync('./back-end/public/uploads/dave/chrono');
+  console.log(req.body)
+  userName = req.body.userName
+  let zipPath = `./public/uploads/${userName}/toZip`
+  console.log("ZIP user name set to " + userName)
+  console.log("zip path set to: "+ zipPath)
 
-Promise.all(directoryFiles.map(filename => {
-  return new Promise((resolve, reject) => {
-    const fileContents = fs.createReadStream(`./back-end/public/uploads/dave/chrono/${filename}`);
-    const writeStream = fs.createWriteStream(`./back-end/public/uploads/dave/${filename}.gz`);
-    const zip = zlib.createGzip();
-    fileContents.pipe(zip).pipe(writeStream).on('finish', (err) => {
-      if (err) return reject(err);
-      else resolve();
+  let zip = new JSZip();
+  
+  if (fs.existsSync(`${zipPath}`)){
+    //let chronoFolder = zip.folder(`chrono`)
+    let zipfiles = fs.readdirSync(`${zipPath}`)
+    zipfiles.forEach(function(file){
+      zip.file(file, fs.readFileSync(`${zipPath}/${file}`)); 
     })
-  })
-}))
-  .then(console.log('done'));
+  }
+
+  zip
+  .generateNodeStream({type:'nodebuffer',streamFiles:true})
+  .pipe(fs.createWriteStream(`public/uploads/${userName}/${userName}-photos.zip`))
+  .on('finish', function () {
+      console.log("photos.zip written.");
+
+      res.send(`http://localhost:8080/uploads/${userName}/${userName}-photos.zip`);
+  });
 
 
-
-  res.send("return")
 })
 
 

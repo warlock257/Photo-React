@@ -41,7 +41,7 @@ class ReactUploadImage extends Component {
         return (
             <div className="upload-buttons">
                 <form onSubmit={this.onFormSubmit} encType="multipart/form-data">
-                    <label htmlFor="chooseFiles">Choose a file
+                    <label htmlFor="chooseFiles">Choose files ->
                     <input type="file" className="chooseFiles" id="chooseFiles" multiple name='myImage' onChange= {this.onChange} />
                     </label>
                     <button type="submit">Upload</button>

@@ -125,7 +125,7 @@ completeClick = () =>{
     console.log(zipUserName);
     let zipConfig = {
       method:"POST",
-      url:"http://localhost:8080/zip",
+      url:"http://localhost:8080/zip2",
       data: {
         userName:zipUserName
       },
