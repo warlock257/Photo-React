@@ -78,7 +78,7 @@ export default class Sidebar3 extends Component {
     return(
         <div className="sidebar">
 
-            <p>Total number of pictures received:</p>
+            <p className="total3">Total number of pictures received:</p>
             <h2>{this.props.uploadedImgs.length}</h2>
             <hr />
 

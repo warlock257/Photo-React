@@ -18,9 +18,8 @@ export default class Main1Sign extends Component {
 
           <form className="name-form" onSubmit={this.props.signInNext}>
             <div className="name-form-div">
-              <label htmlFor="nameField">Enter your last name</label>
               <input type="text" ref="nameField" name="nameField" className="form-control form-control-lg" 
-              id="nameField" placeholder="Name" onChange={this.props.updateName} />
+              id="nameField" placeholder="Enter your last name" onChange={this.props.updateName} />
 
               <button className="next-button signin-button">Next</button>
 
@@ -32,5 +31,3 @@ export default class Main1Sign extends Component {
       )
     }
   }
-
-  //<img src="seaside.jpg" alt="family hero" className="heroImage"/>

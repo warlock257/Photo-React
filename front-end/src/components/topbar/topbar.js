@@ -8,6 +8,14 @@ export default class Topbar extends Component {
         }
     }
 
+    welcomeName = () =>{
+      if (this.props.name === 'none'){
+        return ("")
+      } else{
+        return this.props.name
+      }
+    }
+
     render () {
 
     var circle1 = '';
@@ -47,7 +55,6 @@ export default class Topbar extends Component {
       circle5 = 'green-circle';
     }
 
-
       return (
 
         <div className="topbar">
@@ -66,8 +73,8 @@ export default class Topbar extends Component {
             </div>
             
             <div className="topbarName">
-              <h3>Welcome</h3>
-              <h3>{this.props.name}</h3>
+              <h3>Welcome,</h3>
+              <h3>{this.welcomeName()}</h3>
             </div>
         </div>
           

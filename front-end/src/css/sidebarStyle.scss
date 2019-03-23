@@ -27,6 +27,22 @@
     margin-top:60px;
 }
 
+.sidebar2Text{
+    font-size: 1.3rem;
+    margin-bottom:25px;
+    width:70%;
+    margin:0 auto;
+    margin-bottom:20x;
+}
+
+.sidebar2Text-numberOf{
+    margin-bottom:30px;
+}
+
+.total3{
+    font-size: 1.2rem;
+}
+
 .checkContainer{
     display:flex;
     //justify-content: space-between;
@@ -119,16 +135,13 @@ input[type=checkbox]
     color:black;
 }
 
-.sidebar2Text{
-    width:70%;
-    margin:0 auto;
-    margin-bottom:50px;
-}
+
 
 .next-button{
     margin-top:10px;
     margin-left: 25px;
     color:#fff;
+    font-size: 1.3rem;
     background-color:#007bff;
     border:none;
     border-radius: 5px;
@@ -144,8 +157,8 @@ input[type=checkbox]
 .back-button{
     margin-top:10px;
     color:#fff;
+    font-size: 1.3rem;
     background-color:#007bff;
-    //background-color:#ff0062;
     border:none;
     border-radius: 5px;
     height: 3rem;
