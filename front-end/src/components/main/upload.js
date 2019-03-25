@@ -35,6 +35,26 @@ postImg = (ev) =>{
   })
 }
 
+componentWillMount(){
+  //second set user name
+  const axConfig = {
+    "method":"POST",
+    "url":"http://localhost:8080/setname",
+    "data":{
+        "userName":this.state.name
+    },headers:{
+      'content-type':'application/json'
+     }
+  }
+  axios(axConfig)
+  .then((res)=>{
+    console.log(res.data)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+}
+
 componentDidMount(){
   //console.log("upload did mount")
   //console.log(this.props.uploadedImgs)
