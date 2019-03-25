@@ -4,6 +4,9 @@
     -webkit-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
     -moz-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
     box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+    @media(max-width:425px){
+        height: 100px;
+    }
 }
 
 .progress-circles{
@@ -24,7 +27,10 @@
     display: inline-block;
     vertical-align: middle;
     box-shadow: 0 3px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
+    @media(max-width:425px){
+        height: 40px;
+        width: 40px;
+    }
 }
 
 .progress-line{
@@ -48,6 +54,10 @@
     display: inline-block;
     vertical-align: middle; 
     box-shadow: 0 3px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    @media(max-width:425px){
+        height: 40px;
+        width: 40px;
+    }
 }
 
 .circle-text-signIn{
@@ -55,30 +65,45 @@
     position: relative;
     top: 28px;
     left: 17px;
+    @media(max-width:425px){
+        display:none;
+    }
 }
 .circle-text-upload{
     font-size:.9rem;
     position: relative;
     top: 28px;
     left: 15px;
+    @media(max-width:425px){
+        display:none;
+    }
 }
 .circle-text-cat{
     font-size:.9rem;
     position: relative;
     top: 28px;
     left: 4px;
+    @media(max-width:425px){
+        display:none;
+    }
 }
 .circle-text-order{
     font-size:.9rem;
     position: relative;
     top: 28px;
     left: 21px;
+    @media(max-width:425px){
+        display:none;
+    }
 }
 .circle-text-complete{
     font-size:.9rem;
     position: relative;
     top: 28px;
     left: 7px;
+    @media(max-width:425px){
+        display:none;
+    }
 }
 
 .welcomeName{
@@ -87,6 +112,12 @@
 
 .topbarName{
     color:white;
+    h3{
+        @media(max-width:425px){
+            font-size:1.2rem;
+        }
+    }
+
     @media (min-width:1024px){
         margin-left:10vw;
     }

@@ -34,22 +34,20 @@
         position: absolute;
         top: 140px;
         margin-left:20vw;
-        @media (max-width:425px){
-            margin-left:20px;
-        }
         @media (max-width:768px){
             margin-left:80px;
         }
-        @media (max-width:1024px){
-            //margin-left:210px;
+        @media (max-width:425px){
+            margin-left:20px;
         }
+
         label{
             color:black;
         }
         input{
             height: 75px;
             width: 30vw;
-            font-size: 2rem;
+            font-size: 1.5rem;
             padding-top:16px;
             @media (max-width:768px){
                 width:90%;

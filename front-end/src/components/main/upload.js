@@ -41,7 +41,7 @@ componentWillMount(){
     "method":"POST",
     "url":"http://localhost:8080/setname",
     "data":{
-        "userName":this.state.name
+        "userName":this.props.name
     },headers:{
       'content-type':'application/json'
      }

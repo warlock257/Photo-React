@@ -9,11 +9,19 @@
     color:white;
     position: sticky;
     top: 0px;
+    @media(max-width:425px){
+        width:100px;
+    }
 }
 
 .sidebar-heading{
     margin-top:60px;
     margin-bottom: 30px;
+    @media(max-width:425px){
+        font-size:0.8rem;
+        margin-top:10px;
+        padding-left:10px;
+    }
 }
 
 .sidebar1Text{
@@ -21,10 +29,31 @@
     max-width:85%;
     font-size: 1.3rem;
     text-align: left;
+    padding-left:5px;
+    p{
+        padding-left:20px;
+        @media(max-width:425px){
+            padding-left:0px;
+        }
+    }
+    @media(max-width:425px){
+        font-size:0.8rem;
+        padding-left:15px;
+    }
+
+        ol{
+        @media(max-width:425px){
+            padding-left:5px;
+        }
+    }
 }
 
 .sidebar2Heading{
     margin-top:60px;
+    @media(max-width:425px){
+        font-size:0.9rem;
+        margin-top:10px;
+    }
 }
 
 .sidebar2Text{
@@ -33,6 +62,9 @@
     width:70%;
     margin:0 auto;
     margin-bottom:20x;
+    @media(max-width:425px){
+        font-size:0.8rem;
+    }
 }
 
 .sidebar2Text-numberOf{
@@ -41,6 +73,13 @@
 
 .total3{
     font-size: 1.2rem;
+    width:95%;
+    padding-left: 47px;
+    @media(max-width:425px){
+        font-size:0.8rem;
+        width:95%;
+        padding-left:4px;
+    }
 }
 
 .checkContainer{
@@ -52,11 +91,16 @@
     .checkContainer__count{
         margin:0;
         margin-left:76px;
+        @media(max-width:425px){
+            margin-left:45px;
+        }
     }
     .checkContainer__heading{
         margin:0;
         margin-left:30px;
-        //margin-right:40px;
+        @media(max-width:425px){
+            display:none;
+        }
     }
 }
 
@@ -113,6 +157,114 @@ input[type=checkbox]
   -o-transform: scale(2); /* Opera */
 }
 
+.next-button{
+    margin-top:10px;
+    margin-left: 25px;
+    color:#fff;
+    font-size: 1.3rem;
+    background-color:#007bff;
+    border:none;
+    border-radius: 5px;
+    height: 3rem;
+    width:6rem;
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        box-shadow: 0 5px 15px rgba(79, 96, 192, 0.6)
+    } 
+    @media(max-width:425px){
+        font-size:1rem;
+        height: 2rem;
+        width:4rem;
+        margin-left:0;
+    }
+}
+.back-button{
+    margin-top:10px;
+    color:#fff;
+    font-size: 1.3rem;
+    background-color:#007bff;
+    border:none;
+    border-radius: 5px;
+    height: 3rem;
+    width:6rem;
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        box-shadow: 0 5px 15px rgba(79, 96, 192, 0.6)
+    } 
+    @media(max-width:425px){
+        font-size:1rem;
+        height: 2rem;
+        width:4rem;
+    }
+}
+
+.catSelector{
+    width: 90%;
+    margin:0 auto;
+    hr{
+        margin-top:0;
+    }
+}
+
+.radioLabel{
+    margin-right:20px;
+    width:100%;
+    @media(max-width:425px){
+        width:95%;
+        font-size:0.8rem;
+        margin-left:8px;
+        }
+}
+input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 1.5rem;
+}
+
+.orderInstructions{
+    width:95%;
+    margin:0 auto;
+    h3{
+        @media(max-width:425px){
+        font-size:1.3rem;
+        }
+    }
+    p{
+    @media(max-width:425px){
+        font-size:0.8rem;
+        width:90%;
+        padding-left:17px;
+        }
+    }
+
+}
+
+.sidebar5{
+    h3{
+        font-size:1rem;
+    }
+}
+
+.complete__Instructions{
+    margin:0 auto;
+    max-width:80%;
+    font-size: 1rem;
+    text-align: left;
+    @media(max-width:425px){
+            display:none;
+        }
+}
+
+.complete__count{
+    margin-top:30px;
+}
+
+
+
 .blue-text{
     color: #000dff;
 }
@@ -133,74 +285,4 @@ input[type=checkbox]
 }
 .black-text{
     color:black;
-}
-
-
-
-.next-button{
-    margin-top:10px;
-    margin-left: 25px;
-    color:#fff;
-    font-size: 1.3rem;
-    background-color:#007bff;
-    border:none;
-    border-radius: 5px;
-    height: 3rem;
-    width:6rem;
-    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    &:hover{
-        box-shadow: 0 5px 15px rgba(79, 96, 192, 0.6)
-    } 
-}
-.back-button{
-    margin-top:10px;
-    color:#fff;
-    font-size: 1.3rem;
-    background-color:#007bff;
-    border:none;
-    border-radius: 5px;
-    height: 3rem;
-    width:6rem;
-    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.15);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    &:hover{
-        box-shadow: 0 5px 15px rgba(79, 96, 192, 0.6)
-    } 
-}
-
-.catSelector{
-    width: 90%;
-    margin:0 auto;
-    hr{
-        margin-top:0;
-    }
-}
-
-.radioLabel{
-    margin-right:20px;
-    width:100%;
-}
-input[type=radio] {
-    border: 0px;
-    width: 100%;
-    height: 1.5rem;
-}
-
-.orderInstructions{
-    width:95%;
-    margin:0 auto;
-}
-
-.complete__Instructions{
-    margin:0 auto;
-    max-width:80%;
-    font-size: 1.2rem;
-    text-align: left;
-}
-
-.complete__count{
-    margin-top:30px;
 }

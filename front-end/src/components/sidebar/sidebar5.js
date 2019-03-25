@@ -10,7 +10,7 @@ export default class Sidebar4 extends Component {
 
 render(){
     return(
-        <div className="sidebar">
+        <div className="sidebar sidebar5">
 
         <h3>Nearly Done!</h3>
         <p className="complete__Instructions">Click the buttons to download your 

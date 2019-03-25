@@ -247,7 +247,8 @@ render() {
       mainPage = <Main2Upload uploadedImgs={this.state.uploadedImgs}
                               updateUploadedImgs={this.updateUploadedImgs}
                               userName={this.state.name}
-                              uploading={this.uploading} />
+                              uploading={this.uploading}
+                              name={this.state.name} />
   }
     else if (this.state.page === 3){
       console.log('page 3')
