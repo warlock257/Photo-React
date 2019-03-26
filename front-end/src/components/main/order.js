@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-//import {render} from 'react-dom';
 import {sortableContainer, sortableElement} from 'react-sortable-hoc';
-//import arrayMove from 'array-move';
 
 const SortableItem = sortableElement(({value}) => 
-// <li>{value}</li>
 <div className="sortablePic">
   <img src={value.imgLocalUrl} alt={value.imgLocalUrl} />
 </div>
@@ -18,8 +15,7 @@ const SortableContainer = sortableContainer(({children}) => {
 
 class Main4Order extends Component {
   state = {
-    //items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
-    //items: []
+
   };
 
 
@@ -44,12 +40,11 @@ class Main4Order extends Component {
     }else if (this.props.loadedArray === "unsorted") {
       items = this.props.unsortedArray
       headingStr = "No Category"
-
     }
 
     let miniOrder = items.map((object, index) =>{
       return (
-        <img src={items[index].imgLocalUrl} alt="miniOrderPhoto"/>
+        <img src={items[index].imgLocalUrl} key={items[index].imgLocalUrl} alt="miniOrderPhoto"/>
       )
     }) 
     
@@ -69,8 +64,6 @@ class Main4Order extends Component {
             {miniOrder}
           </div>
       </div>  
-
-
     </div>
     );
   }

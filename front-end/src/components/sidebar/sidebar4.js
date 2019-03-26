@@ -14,7 +14,6 @@ radioChange = (ev) =>{
 }
 
 completeClick = () =>{
-    console.log(this.props.chronoArray)
     //send request to move sorted into folders
     if(this.props.chronoArray.length !== 0){
     const axConfig = {
@@ -27,7 +26,7 @@ completeClick = () =>{
       }
       axios(axConfig)
       .then((res)=>{
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch((err)=>{
         console.log(err)
@@ -44,7 +43,7 @@ completeClick = () =>{
       }
       axios(axConfig)
       .then((res)=>{
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch((err)=>{
         console.log(err)
@@ -61,7 +60,7 @@ completeClick = () =>{
       }
       axios(axConfig)
       .then((res)=>{
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch((err)=>{
         console.log(err)
@@ -78,7 +77,7 @@ completeClick = () =>{
       }
       axios(axConfig)
       .then((res)=>{
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch((err)=>{
         console.log(err)
@@ -95,7 +94,7 @@ completeClick = () =>{
       }
       axios(axConfig)
       .then((res)=>{
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch((err)=>{
         console.log(err)
@@ -112,17 +111,16 @@ completeClick = () =>{
       }
       axios(axConfig)
       .then((res)=>{
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch((err)=>{
         console.log(err)
       })
     }
 
-
     //zip sorted files and folders, get returned url
     let zipUserName = this.props.name;
-    console.log(zipUserName);
+    //console.log(zipUserName);
     let zipConfig = {
       method:"POST",
       url:"http://localhost:8080/zip2",
@@ -135,7 +133,7 @@ completeClick = () =>{
     }
     axios(zipConfig)
     .then((res)=>{
-      console.log("returned URL: " + res.data)
+      //console.log("returned URL: " + res.data)
       this.props.getZipUrl(res.data)
     })
     .catch((err) =>{
@@ -185,7 +183,6 @@ render(){
 
             <button className="back-button" onClick={this.props.catClick}>Back</button>
             <button className="next-button" onClick={this.completeClick}>Next</button>
-
         </div>
     )}
 }

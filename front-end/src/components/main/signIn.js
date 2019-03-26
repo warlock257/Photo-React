@@ -8,14 +8,11 @@ export default class Main1Sign extends Component {
       }
     }
 
-
-
     render () {
       return (
         <div className='signInDiv'>
             <h2>Welcome to our Photo Organizer</h2>
             
-
           <form className="name-form" onSubmit={this.props.signInNext}>
             <div className="name-form-div">
               <input type="text" ref="nameField" name="nameField" className="form-control form-control-lg" 
@@ -27,7 +24,6 @@ export default class Main1Sign extends Component {
             
           </form>
         </div>
-
       )
     }
   }

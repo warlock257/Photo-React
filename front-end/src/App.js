@@ -81,7 +81,6 @@ class App extends Component {
 
   signInNext= (ev) => {
     ev.preventDefault();
-    console.log("Sign in Next fired")
     if(this.state.name === 'none'){
       alert("Enter a name before proceeding");
     } else {
@@ -109,13 +108,11 @@ class App extends Component {
   //PAGE 2 FUNCTIONS
   
   uploading=()=>{
-    console.log("uploading")
     this.setState({uploading:true})
     this.setState({uploading:false})
   }
   
   updateUploadedImgs = (uploadedImgs) =>{
-    console.log("update uploaded img fired")
     this.setState({
       uploadedImgs:uploadedImgs
     })
@@ -169,11 +166,10 @@ updateCategoryArrays = (chronoArray,familyArray,extArray,friendsArray,funArray,u
   })
 }
 
-
 //PAGE 4 FUNCTIONS
 
 orderFilter = (catToOrder) =>{
-  console.log("ordering "+ catToOrder)
+  //console.log("ordering "+ catToOrder)
   if (catToOrder === "chrono"){
     this.setState({loadedArray:"chrono"})
   } else if (catToOrder === "family"){
@@ -224,22 +220,19 @@ getZipUrl = (url) =>{
   })
 }
 
-
-
-
 render() {
 
   //which page(s) to render by state
   var sidebar ='';
   var mainPage='';
   if (this.state.page === 1){
-      console.log('page 1')
+      //console.log('page 1')
       sidebar = <Sidebar1 />
       mainPage = <Main1Sign updateName={this.updateName} 
                             page={this.state.page}  
                             signInNext={this.signInNext} />
   } else if (this.state.page === 2){
-      console.log('page 2')
+      //console.log('page 2')
       sidebar = <Sidebar2 totalPhotos={this.state.totalPhotos}
                           uploadedImgs={this.state.uploadedImgs}
                           signInClick={this.signInClick}
@@ -251,7 +244,7 @@ render() {
                               name={this.state.name} />
   }
     else if (this.state.page === 3){
-      console.log('page 3')
+      //console.log('page 3')
       sidebar = <Sidebar3 totalPhotos={this.state.totalPhotos}
                           chronoPhotos={this.state.chronoPhotos}
                           famPhotos={this.state.famPhotos}
@@ -270,7 +263,7 @@ render() {
                            updateCatCount={this.updateCatCount}/>
   }
     else if (this.state.page === 4){
-      console.log('page 4')
+      //console.log('page 4')
       sidebar = <Sidebar4 orderFilter={this.orderFilter}
                           catClick={this.catClick}
                           completeClick={this.completeClick}
@@ -295,7 +288,7 @@ render() {
 
   }
     else if (this.state.page === 5){
-      console.log('page 5')
+      //console.log('page 5')
       sidebar = <Sidebar5 
                           chronoArray={this.state.chronoArray} 
                           familyArray={this.state.familyArray} 
@@ -305,7 +298,6 @@ render() {
                           unsortedArray={this.state.unsortedArray}  />
       mainPage = <Main5Complete zipUrl={this.state.zipUrl} />
   }
-
 
     return (
       <div className="photo-react">

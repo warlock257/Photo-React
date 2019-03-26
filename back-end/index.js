@@ -49,7 +49,7 @@ const storage = multer.diskStorage({
   }
 })
 
-//upload variable
+//SINGLE upload variable
 const upload = multer({
   storage:storage,
   limits:{
@@ -59,7 +59,7 @@ const upload = multer({
       }
   }
 }).single('myImage');
-//put in a name variable instead of my image
+
 
 //multi upload variable
 const uploads = multer({
@@ -71,8 +71,6 @@ const uploads = multer({
       }
   }
 }).array('myImage');
-//put in a name variable instead of my image
-
 
 //check file type function
 function checkFileType(file, cb){
@@ -86,28 +84,6 @@ function checkFileType(file, cb){
       cb('Error: images only')
   }
 }
-
-//file.originalfilename is the original file name
-//file.filename is new file name
-// app.post('/upload',(req,res) =>{
-//   console.log("username: " + userName + " Path: " + userPath);
-//   upload(req,res,(err) => {
-//       if(err){
-//         console.log(err)
-//         res.send(err)
-//       } else {
-//           //console.log(req.file)
-//           if(req.file == undefined){
-//             console.log("no file selected")
-//             res.send("no file selected")
-//           } else {
-//             //console.log("file uploaded as: " + req.file.filename)
-//             mv(`./public/uploads/tmp/${req.file.filename}`, `${userPath}/${req.file.filename}`, (err) =>{console.log(err)})
-//             res.send("file uploaded as: " + req.file.filename)
-//           }
-//       }
-//   })
-// })
 
 //multi upload endpoint
 app.post('/uploads',(req,res) =>{
@@ -141,7 +117,6 @@ app.delete('/deletePic', (req, res)=>{
   fs.unlink(`./public/uploads/${userName}/${fileToDelete}`, (err) =>{
     console.log("error deleting file: " + err)
   })
-
   res.send("pic deleted: " + req.body.file)
 })
 
@@ -150,9 +125,6 @@ app.delete('/deletePic', (req, res)=>{
 //  -----------    PAGE 2   --------------  send uploaded pics
 
 app.get('/getPics', (req,res) =>{
-    //let userFolder = 'tempImages'
-    //const testFolder = `./public/${userFolder}/`;
-
     let imgNumber = 0
     let arrayOfImages = [];
     let imgObject = {
@@ -185,11 +157,9 @@ app.get('/getPics', (req,res) =>{
 
 //get array from front end - 1 request per category
 app.post('/process',(req,res) =>{
-  //console.log(req.body)
   let currentArray = req.body
   //console.log(currentArray);
 
-  //make folder - username/category
   userPath = `./public/uploads/${userName}`
   let catFolder = currentArray[0].category
   let catPath = `${userPath}/${catFolder}`
@@ -209,20 +179,13 @@ app.post('/process',(req,res) =>{
       originalFileName = currentArray[i].originalFilename
       ImgExtension = originalFileName.substr(21,5)
       fs.renameSync(`${userPath}/${currentArray[i].originalFilename}`, `${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`
-      // , (err) => {
-      //   if (err) throw err;}
       );
 
       //after rename, copy to the zip folder
       fs.copyFileSync(`${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`, `${userPath}/toZip/${userName}-${currentArray[i].category}-${i}${ImgExtension}`
-      //  , (err) => {if (err) throw err;
-        //console.log('source.txt was copied to destination.txt');}
       );
-
     }
-
-
-    
+  
   res.json(req.body)
 })
 
@@ -231,12 +194,10 @@ app.post('/process',(req,res) =>{
 // -------  PAGE 5 -----zip entire file structure
 
 app.post('/zip', (req, res) =>{
-  console.log(req.body)
   userName = req.body.userName
   let zipPath = `./public/uploads/${userName}`
   console.log("ZIP user name set to " + userName)
   console.log("zip path set to: "+ zipPath)
-  
 
   let zip = new JSZip();
 
@@ -308,7 +269,6 @@ app.post('/zip2', (req, res) =>{
   let zip = new JSZip();
   
   if (fs.existsSync(`${zipPath}`)){
-    //let chronoFolder = zip.folder(`chrono`)
     let zipfiles = fs.readdirSync(`${zipPath}`)
     zipfiles.forEach(function(file){
       zip.file(file, fs.readFileSync(`${zipPath}/${file}`)); 
@@ -323,8 +283,6 @@ app.post('/zip2', (req, res) =>{
 
       res.send(`http://localhost:8080/uploads/${userName}/${userName}-photos.zip`);
   });
-
-
 })
 
 

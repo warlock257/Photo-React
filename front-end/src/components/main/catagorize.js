@@ -105,7 +105,6 @@ export default class Main3Cat extends Component {
     } else if (this.props.uploadedImgs[index].category === 'fun'){
         borderColor = funBorder;
     }
-    //console.log(this.props.uploadedImgs)
     return (
         <div key={this.props.uploadedImgs[index].number} id={this.props.uploadedImgs[index].number} draggable="true" onDragStart={this.onDragOver}  className="draggableImg" style={borderColor} > 
             <img  src={this.props.uploadedImgs[index].imgLocalUrl}  id={this.props.uploadedImgs[index].number} alt="" className="img-responsive draggableImgImg" />
@@ -159,7 +158,6 @@ export default class Main3Cat extends Component {
                     { imageArray }
                 </div>
         </div>
- 
       )
     }
   }

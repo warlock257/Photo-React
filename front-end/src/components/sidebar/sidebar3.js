@@ -3,8 +3,6 @@ import React, { Component} from 'react';
 export default class Sidebar3 extends Component {
 
     on3Next = () =>{
-        console.log(this.props.uploadedImgs)
-
         //filer master array by category, making 6 new arrays
         function isChrono(item){
             if(item.category === "chrono"){
@@ -14,7 +12,6 @@ export default class Sidebar3 extends Component {
             }
         }
         let chronoArray = this.props.uploadedImgs.filter(isChrono)
-        //console.log(chronoArray);
 
         function isFamily(item){
             if(item.category === "family"){
@@ -24,7 +21,6 @@ export default class Sidebar3 extends Component {
             }
         }
         let familyArray = this.props.uploadedImgs.filter(isFamily)
-        //console.log(familyArray);
 
         function isExt(item){
             if(item.category === "extended"){
@@ -34,7 +30,6 @@ export default class Sidebar3 extends Component {
             }
         }
         let extArray = this.props.uploadedImgs.filter(isExt)
-        //console.log(extArray);
 
         function isfriend(item){
             if(item.category === "friends"){
@@ -44,7 +39,6 @@ export default class Sidebar3 extends Component {
             }
         }
         let friendsArray = this.props.uploadedImgs.filter(isfriend)
-        //console.log(friendsArray);
 
         function isfun(item){
             if(item.category === "fun"){
@@ -54,7 +48,6 @@ export default class Sidebar3 extends Component {
             }
         }
         let funArray = this.props.uploadedImgs.filter(isfun)
-        //console.log(funArray);
 
         function isUnsorted(item){
             if(item.category === "unsorted"){
@@ -64,7 +57,6 @@ export default class Sidebar3 extends Component {
             }
         }
         let unsortedArray = this.props.uploadedImgs.filter(isUnsorted)
-        //console.log(unsortedArray);
 
         //load each category array into state
         this.props.updateCategoryArrays(chronoArray,familyArray,extArray,friendsArray,funArray,unsortedArray)

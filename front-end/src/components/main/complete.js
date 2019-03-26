@@ -6,7 +6,6 @@ export default class Main5Complete extends Component {
     window.location.reload();
   }
 
-
     render () {
       return (
         <div className='completePage'>
@@ -15,9 +14,7 @@ export default class Main5Complete extends Component {
               <button><a href={this.props.zipUrl}>Download Sorted Files</a></button>
               <button>Submit to Company</button>
             </div>
-
         </div>
-
       )
     }
   }
