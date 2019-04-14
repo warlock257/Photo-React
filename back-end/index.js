@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 app.use(express.static('./public'));
 
-let userName='';
+let userName='client';
 let defaultPath='./public/uploads/';
 let userPath='./public/uploads/';
 
@@ -100,7 +100,12 @@ app.post('/uploads',(req,res) =>{
           } else {
             //console.log(req.files)
             for (let i = 0; i < req.files.length ;i++){
-              mv(`./public/uploads/tmp/${req.files[i].filename}`, `${userPath}/${req.files[i].filename}`, (err) =>{console.log(err)})
+              mv(`./public/uploads/tmp/${req.files[i].filename}`, `${userPath}/${req.files[i].filename}`, 
+                (err) =>{
+                  if(err){
+                    console.log(err)
+                  }
+                })
             }
             res.json(req.files)
           }
@@ -115,7 +120,9 @@ app.post('/uploads',(req,res) =>{
 app.delete('/deletePic', (req, res)=>{
   let fileToDelete = req.body.file
   fs.unlink(`./public/uploads/${userName}/${fileToDelete}`, (err) =>{
-    console.log("error deleting file: " + err)
+    if(err){
+      console.log("error deleting file: " + err)
+    }
   })
   res.send("pic deleted: " + req.body.file)
 })
@@ -168,9 +175,10 @@ app.post('/process',(req,res) =>{
   if (!fs.existsSync(catPath)){
     fs.mkdirSync(catPath);
   }
-  if (!fs.existsSync(`${userPath}/toZip`)){
-    fs.mkdirSync(`${userPath}/toZip`);
-  }
+  //Make toZip Folder
+  // if (!fs.existsSync(`${userPath}/toZip`)){
+  //   fs.mkdirSync(`${userPath}/toZip`);
+  // }
 
 
   //move files in each category into sub folders, rename files in each folder
@@ -182,10 +190,10 @@ app.post('/process',(req,res) =>{
       );
 
       //after rename, copy to the zip folder
-      fs.copyFileSync(`${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`, `${userPath}/toZip/${userName}-${currentArray[i].category}-${i}${ImgExtension}`
-      );
+      //fs.copyFileSync(`${catPath}/${userName}-${currentArray[i].category}-${i}${ImgExtension}`, `${userPath}/toZip/${userName}-${currentArray[i].category}-${i}${ImgExtension}`
+      //);
     }
-  
+  console.log("Final Processing done!")
   res.json(req.body)
 })
 

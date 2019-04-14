@@ -18,7 +18,7 @@ completeClick = () =>{
     if(this.props.chronoArray.length !== 0){
     const axConfig = {
         method:"POST",
-        url:"http://localhost:8080/process/",
+        url:"/process/",
         data: this.props.chronoArray,
         headers:{
             'Content-Type':'application/json'
@@ -35,7 +35,7 @@ completeClick = () =>{
     if(this.props.familyArray.length !== 0){
     const axConfig = {
         method:"POST",
-        url:"http://localhost:8080/process/",
+        url:"/process/",
         data: this.props.familyArray,
         headers:{
             'Content-Type':'application/json'
@@ -52,7 +52,7 @@ completeClick = () =>{
     if(this.props.extArray.length !== 0){
     const axConfig = {
         method:"POST",
-        url:"http://localhost:8080/process/",
+        url:"/process/",
         data: this.props.extArray,
         headers:{
             'Content-Type':'application/json'
@@ -69,7 +69,7 @@ completeClick = () =>{
     if(this.props.friendsArray.length !== 0){
     const axConfig = {
         method:"POST",
-        url:"http://localhost:8080/process/",
+        url:"/process/",
         data: this.props.friendsArray,
         headers:{
             'Content-Type':'application/json'
@@ -86,7 +86,7 @@ completeClick = () =>{
     if(this.props.funArray.length !== 0){
     const axConfig = {
         method:"POST",
-        url:"http://localhost:8080/process/",
+        url:"/process/",
         data: this.props.funArray,
         headers:{
             'Content-Type':'application/json'
@@ -103,7 +103,7 @@ completeClick = () =>{
     if(this.props.unsortedArray.length !== 0){
     const axConfig = {
         method:"POST",
-        url:"http://localhost:8080/process/",
+        url:"/process/",
         data: this.props.unsortedArray,
         headers:{
             'Content-Type':'application/json'
@@ -118,27 +118,27 @@ completeClick = () =>{
       })
     }
 
-    //zip sorted files and folders, get returned url
-    let zipUserName = this.props.name;
-    //console.log(zipUserName);
-    let zipConfig = {
-      method:"POST",
-      url:"http://localhost:8080/zip2",
-      data: {
-        userName:zipUserName
-      },
-      headers:{
-          'Content-Type':'application/json'
-      }
-    }
-    axios(zipConfig)
-    .then((res)=>{
-      //console.log("returned URL: " + res.data)
-      this.props.getZipUrl(res.data)
-    })
-    .catch((err) =>{
-      console.log(err)
-    })
+    // //zip sorted files and folders, get returned url
+    // let zipUserName = this.props.name;
+    // //console.log(zipUserName);
+    // let zipConfig = {
+    //   method:"POST",
+    //   url:"/zip2",
+    //   data: {
+    //     userName:zipUserName
+    //   },
+    //   headers:{
+    //       'Content-Type':'application/json'
+    //   }
+    // }
+    // axios(zipConfig)
+    // .then((res)=>{
+    //   //console.log("returned URL: " + res.data)
+    //   this.props.getZipUrl(res.data)
+    // })
+    // .catch((err) =>{
+    //   console.log(err)
+    // })
 
 
     //change to pg 5

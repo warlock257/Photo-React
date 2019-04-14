@@ -86,7 +86,7 @@ class App extends Component {
     } else {
       const axConfig = {
         "method":"POST",
-        "url":"http://localhost:8080/setname",
+        "url":"/setname",
         "data":{
             "userName":this.state.name
         },headers:{
