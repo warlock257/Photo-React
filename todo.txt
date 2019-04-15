@@ -1,36 +1,8 @@
-mobile friendliness:
 
-TOP BAR
-hide text in circles
-circles 40px
-welcome font size to 1.3rem
-
-SIDEBAR
-pg 1
-width:100px
-hide instructions	
-
-pg 2
-shrink text  .8rem
-buttons smaller
-
-pg 3
-take out labels
-color numbers to match
+-send email
+-stress test
 
 
-
-Stretch goals
-use React Router
-
-
-
-
-
-object example
-
-category: "unsorted",
-imgLocalUrl: "http://localhost:8080/uploads/dave/myImage-1552929776899.jpg",
-newFilename: "",
-number: 0,
-originalFilename: ""
+END
+disable circles
+npm buid

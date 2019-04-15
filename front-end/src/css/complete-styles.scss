@@ -2,10 +2,11 @@
     width:100%;
     background-image: url('../forest.jpg');
     background-size: cover;
-    background-position-y: -430px;
+    background-position-y: -550px;
     background-repeat: no-repeat;
+    
     @media(max-width:1024px){
-        background-position-y: -210px;
+        background-position-y: -320px;
     }
 }
 

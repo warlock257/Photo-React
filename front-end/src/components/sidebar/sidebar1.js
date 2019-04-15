@@ -20,7 +20,7 @@ render(){
                <li>Upload your photos</li>
                <li>Sort your photos into categories</li>
                <li>Order your photos within each category</li>
-               <li>Download your sorted photos in a zip file</li>
+               <li>Notify the company</li>
            </ol>
         </div>
 

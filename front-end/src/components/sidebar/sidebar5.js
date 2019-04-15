@@ -12,10 +12,10 @@ render(){
     return(
         <div className="sidebar sidebar5">
 
-        <h3>Nearly Done!</h3>
-        <p className="complete__Instructions">Click the buttons to download your 
-            sorted files, and send them to the 
-            company.</p>
+        <h2>Nearly Done!</h2>
+        <p className="complete__Instructions">Click the buttons to either start over from scratch,
+        or notify the company that you are done. You'll be able to add a note to your submission
+        if you wish.</p>
             <br />
         <p className="complete__Instructions">Total number of files in each category:</p>
 

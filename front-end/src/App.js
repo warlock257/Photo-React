@@ -320,6 +320,10 @@ render() {
           {sidebar}
           {mainPage}
         </div>
+        <footer className="footer">
+          <p>© David Courtemanche 2019</p>
+          <p><a href="http://davecourtemanche.com" target="_blank" rel="noopener noreferrer">davecourtemanche.com</a></p>
+        </footer>
       </div>
     );
   }
