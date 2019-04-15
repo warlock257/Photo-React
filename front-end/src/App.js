@@ -296,7 +296,13 @@ render() {
                           friendsArray={this.state.friendsArray} 
                           funArray={this.state.funArray} 
                           unsortedArray={this.state.unsortedArray}  />
-      mainPage = <Main5Complete zipUrl={this.state.zipUrl} />
+      mainPage = <Main5Complete zipUrl={this.state.zipUrl}
+                                chronoArray={this.state.chronoArray}
+                                familyArray={this.state.familyArray} 
+                                extArray={this.state.extArray} 
+                                friendsArray={this.state.friendsArray} 
+                                funArray={this.state.funArray} 
+                                unsortedArray={this.state.unsortedArray} />
   }
 
     return (
