@@ -3,7 +3,9 @@
 # dependencies
 back-end/node_modules
 back-end/public
+back-end/.env
 front-end/node_modules
+email cridentials.txt
 file-upload-example/backend/node_modules
 file-upload-example/frontend/node_modules
 /.pnp

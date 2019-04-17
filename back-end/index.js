@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require ('path');
 const app = express();
+require('dotenv').config()
 const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(cors({
@@ -291,6 +292,41 @@ app.post('/zip2', (req, res) =>{
 
       res.send(`http://localhost:8080/uploads/${userName}/${userName}-photos.zip`);
   });
+})
+
+
+
+// -------------- EMAIL NOTIFICATION ------------
+
+var nodemailer = require('nodemailer');
+
+app.post('/notify', (req,res) =>{
+
+  var transporter = nodemailer.createTransport({
+    service: 'outlook',
+    auth: {
+      user: process.env.emailAddress,
+      pass: process.env.emailPassword
+    }
+  });
+  
+  var mailOptions = {
+    from: 'dellphotonotify@outlook.com',
+    to: 'dellphotonotify@outlook.com',
+    subject: `${req.body.name} Uploaded some photos`,
+    text: `${req.body.name} has uploaded ${req.body.numPhotos} photos to our server`
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+      res.send(error)
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.send("Email sent Successfully")
+    }
+  });
+
 })
 
 
