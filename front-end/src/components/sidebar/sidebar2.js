@@ -18,6 +18,7 @@ render(){
         <div className="sidebar2Text">
             <p>Click "Choose files", then click "Upload". This can be done multiple times.</p>
             <p>Make sure you see all your photos before proceeding.</p>
+            <p>Larger files may take longer to appear on screen</p>
         </div>
 
         <p className="sidebar2Text sidebar2Text-numberOf ">Number of pictures received:</p>

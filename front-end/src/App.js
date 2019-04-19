@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
 import arrayMove from 'array-move';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 
 import './css/masterstyles.scss';
 import './css/topbarStyle.scss';
@@ -82,11 +84,15 @@ class App extends Component {
   signInNext= (ev) => {
     ev.preventDefault();
     if(this.state.name === 'none'){
-      alert("Enter a name before proceeding");
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a name before proceeding'
+      })
     } else {
       const axConfig = {
         "method":"POST",
-        "url":"http://localhost:8080/setname",
+        "url":"/setname",
         "data":{
             "userName":this.state.name
         },headers:{
@@ -296,7 +302,14 @@ render() {
                           friendsArray={this.state.friendsArray} 
                           funArray={this.state.funArray} 
                           unsortedArray={this.state.unsortedArray}  />
-      mainPage = <Main5Complete zipUrl={this.state.zipUrl} />
+      mainPage = <Main5Complete zipUrl={this.state.zipUrl}
+                                chronoArray={this.state.chronoArray}
+                                familyArray={this.state.familyArray} 
+                                extArray={this.state.extArray} 
+                                friendsArray={this.state.friendsArray} 
+                                funArray={this.state.funArray} 
+                                unsortedArray={this.state.unsortedArray}
+                                name={this.state.name} />
   }
 
     return (
@@ -314,6 +327,10 @@ render() {
           {sidebar}
           {mainPage}
         </div>
+        <footer className="footer">
+          <p>© David Courtemanche 2019</p>
+          <p><a href="http://davecourtemanche.com" target="_blank" rel="noopener noreferrer">davecourtemanche.com</a></p>
+        </footer>
       </div>
     );
   }
