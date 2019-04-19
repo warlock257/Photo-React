@@ -302,6 +302,8 @@ var nodemailer = require('nodemailer');
 
 app.post('/notify', (req,res) =>{
 
+  console.log("notify endpoint hit")
+
   var transporter = nodemailer.createTransport({
     service: 'outlook',
     auth: {
@@ -314,7 +316,8 @@ app.post('/notify', (req,res) =>{
     from: 'dellphotonotify@outlook.com',
     to: 'dellphotonotify@outlook.com',
     subject: `${req.body.name} Uploaded some photos`,
-    text: `${req.body.name} has uploaded ${req.body.numPhotos} photos to our server`
+    text: `${req.body.name} has uploaded ${req.body.numPhotos} photos to our server
+           ${req.body.message}`
   };
   
   transporter.sendMail(mailOptions, function(error, info){

@@ -302,7 +302,8 @@ render() {
                                 extArray={this.state.extArray} 
                                 friendsArray={this.state.friendsArray} 
                                 funArray={this.state.funArray} 
-                                unsortedArray={this.state.unsortedArray} />
+                                unsortedArray={this.state.unsortedArray}
+                                name={this.state.name} />
   }
 
     return (

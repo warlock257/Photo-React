@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -60,6 +61,26 @@ export default class Main5Complete extends Component {
           html:
             'Thank you',
           confirmButtonText: 'Lovely!'
+        })
+
+        let axconfig = {
+          method:"POST",
+          url:"/notify",
+          data:{
+            name:this.props.name,
+            message:notes,
+            numPhotos:totalPhotos
+          },
+          headers:{
+            'Content-Type':'application/json'
+          }
+        }
+        axios(axconfig)
+        .then((res) =>{
+          //success
+        })
+        .catch((err) =>{
+          console.log("error")
         })
       }
     })
