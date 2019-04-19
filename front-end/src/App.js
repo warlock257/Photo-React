@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
 import arrayMove from 'array-move';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 
 import './css/masterstyles.scss';
 import './css/topbarStyle.scss';
@@ -82,7 +84,11 @@ class App extends Component {
   signInNext= (ev) => {
     ev.preventDefault();
     if(this.state.name === 'none'){
-      alert("Enter a name before proceeding");
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a name before proceeding'
+      })
     } else {
       const axConfig = {
         "method":"POST",

@@ -11,12 +11,12 @@ export default class Main5Complete extends Component {
       text: "You will lose all your progress!",
       type: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#d33' ,
+      cancelButtonColor: '#3085d6',
       confirmButtonText: 'Yes, Start over!'
     }).then((result) => {
       if (result.value) {
-
+        axios.delete('/deleteAll')
         window.location.reload();
       }
     })
@@ -30,7 +30,7 @@ export default class Main5Complete extends Component {
                       this.props.funArray.length + 
                       this.props.unsortedArray.length
     Swal.fire({
-      title: '<strong>Your pictures have been received. Send Dell Productions a message to let them know.</strong>',
+      title: '<strong>Your pictures have been received. Send Dell Productions a message to let them know...</strong>',
       type: 'info',
       html:
         `
@@ -42,7 +42,7 @@ export default class Main5Complete extends Component {
         <p>Friends: ${this.props.friendsArray.length}</p>
         <p>Fun: ${this.props.funArray.length}</p>
         <p>Unsorted: ${this.props.unsortedArray.length}</p>
-        <input type="textarea" id="emailMessage" class="swal2-input extraNotes" />
+        <input type="textarea" id="emailMessage" placeholder="add additional notes here" class="swal2-input extraNotes" />
         `,
       // input:'textarea',
       // inputPlaceholder: 'Add additional notes',

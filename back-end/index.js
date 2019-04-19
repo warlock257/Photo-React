@@ -294,6 +294,19 @@ app.post('/zip2', (req, res) =>{
   });
 })
 
+//---------------DELETE ALL ON START OVER ---------
+
+let rimraf = require('rimraf')
+
+app.delete('/deleteAll', (req, res)=>{
+  //userName = "tester"
+  if(fs.existsSync(`./public/uploads/${userName}/`)){
+    rimraf(`./public/uploads/${userName}/`, () =>{console.log("deleted user folder")})
+  }
+
+  res.send("user folder deleted")
+})
+
 
 
 // -------------- EMAIL NOTIFICATION ------------
