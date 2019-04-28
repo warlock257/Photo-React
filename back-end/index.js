@@ -151,7 +151,7 @@ app.get('/getPics', (req,res) =>{
           originalFilename:file,
           newFilename:'',
           category:'unsorted',
-          imgLocalUrl:`http://localhost:8080/uploads/${userName}/${file}`
+          imgLocalUrl:`/uploads/${userName}/${file}`
         }
         arrayOfImages.push(imgObject)
         imgNumber++

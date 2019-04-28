@@ -61,15 +61,15 @@ export default class Topbar extends Component {
         <div className="row progress-circles">
             
             <div className="circles">
-                <div className={circle1} id="signIn" onClick={{/*this.props.signInClick*/}}><span className="circle-text-signIn">Sign in</span></div>
+                <div className={circle1} id="signIn" ><span className="circle-text-signIn">Sign in</span></div>
                 <div className="progress-line"></div>
-                <div className={circle2} id="upload" onClick={{/*this.props.uploadClick*/}}><span className="circle-text-upload">Upload</span></div>
+                <div className={circle2} id="upload" ><span className="circle-text-upload">Upload</span></div>
                 <div className="progress-line"></div>
-                <div className={circle3} id="categorize" onClick={{/*this.props.catClick*/}}><span className="circle-text-cat">Categorize</span></div>
+                <div className={circle3} id="categorize" ><span className="circle-text-cat">Categorize</span></div>
                 <div className="progress-line"></div>
-                <div className={circle4} id="order" onClick={{/*this.props.orderClick*/}}><span className="circle-text-order">Order</span></div>
+                <div className={circle4} id="order" ><span className="circle-text-order">Order</span></div>
                 <div className="progress-line"></div>
-                <div className={circle5} id="complete" onClick={{/*this.props.completeClick*/}}><span className="circle-text-complete">Complete</span></div>
+                <div className={circle5} id="complete" ><span className="circle-text-complete">Complete</span></div>
             </div>
             
             <div className="topbarName">
@@ -84,3 +84,8 @@ export default class Topbar extends Component {
     }
   }
   
+  //onClick={this.props.signInClick}
+  // onClick={this.props.uploadClick}
+  // onClick={this.props.catClick}
+  // onClick={this.props.orderClick}
+  // onClick={this.props.completeClick}
